@@ -250,7 +250,7 @@ button:focus-visible {
   width: 100%;
   height: 100vh;
   max-height: 844px;
-  background-color: var(--sage-green);
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -259,10 +259,11 @@ button:focus-visible {
 }
 
 .login-container, .register-container {
-  background: white;
+  background: #8BB795;
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
 .input-group {
@@ -271,7 +272,7 @@ button:focus-visible {
 
 .input-group label {
   display: block;
-  color: black;
+  color: white;
   margin-bottom: 0.5rem;
 }
 
@@ -287,7 +288,6 @@ button:focus-visible {
   border: none;
   border-bottom: 2px solid #ccc;
   font-size: 1rem;
-  background: transparent;
 }
 
 .pencil-icon {
@@ -313,6 +313,6 @@ button:focus-visible {
 }
 
 .register-container p {
-  color: black;
+  color: white;
   margin-bottom: 1rem;
 }

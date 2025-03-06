@@ -1,29 +1,19 @@
 import React from 'react'
-import { useState } from 'react'
 import Login from './Login'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Title from './components/title';
 
 
 const App: React.FC = () => {
-  const [showLogin, setShowLogin] = useState<boolean>(false)
-
-  const handleStart = (): void => {
-    setShowLogin(true)
-  }
-
-  if (showLogin) {
-    return <Login />
-  }
-
   return (
+    <BrowserRouter>
     <div className="title-screen">
-      <div className="white-circle circle-1"></div>
-      <div className="white-circle circle-2"></div>
-      <div className="white-circle circle-3"></div>
-      <div className="content">
-        <h1 className="title">PlanTalk</h1>
-        <p className="start-text" onClick={handleStart}>タップでスタート！</p>
+        <Routes>
+          <Route path="/" element={<Title />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   )
 }
 
