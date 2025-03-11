@@ -1,4 +1,3 @@
-import React from 'react'
 import { useAtom } from 'jotai'
 import LoginForm from './components/LoginForm'
 import RegisterSection from './components/RegisterSection'
