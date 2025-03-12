@@ -11,10 +11,15 @@ import {
   startOfMonth,
 } from "date-fns";
 
+interface getCalenderArrayProps {
+  selectMonth:Date;
+}
 
-function Clalender() {
+function Clalender({selectMonth}:getCalenderArrayProps) {
 
   const getCalenderArray = (date: Date) => {
+
+
     //1ヶ月分の日曜日の日付を取得
     const sundays = eachWeekOfInterval({
       start: startOfMonth(date),
@@ -28,13 +33,19 @@ function Clalender() {
   };
 
   const date = new Date();
-  const calender = getCalenderArray(date);
+
+  //getCalenderArray()の中はdate以外でも大丈夫
+  const calender = getCalenderArray(selectMonth);
+
+  const calenderModal = (date:number) => {
+    console.log("calenderModal", date);
+  }
 
   return (
-    <div className="calender-title">
+    <div >
 
 
-      <div className="calender-title-text">{format(date, "y年M月")}</div>
+      {/* <div className="calender-title-text">{format(date, "y年M月")}</div> */}
       <table className="calender-table">
         <thead>
           <tr>
@@ -52,7 +63,7 @@ function Clalender() {
             <tr key={rowNum}>
               {weekRow.map((date) => (
                 //dateの日付標識を変更して出力
-                <td key={getDay(date)}>{getDate(date)}</td>
+                <td key={getDay(date)} onClick={() => calenderModal(getDate(date))}>{getDate(date)}</td>
               ))}
             </tr>
           ))}
