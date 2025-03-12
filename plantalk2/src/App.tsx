@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Title from './components/title';
 import Clalender from './Clalender';
 import Slider from './Slider';
+import Modal from './Modal';
 
 
 const App: React.FC = () => {
@@ -15,6 +16,7 @@ const App: React.FC = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/calender" element={<Clalender />} />
           <Route path="/slider" element={<Slider />} />
+          <Route path="/modal" element={<Modal />} />
         </Routes>
       </div>
     </BrowserRouter>
