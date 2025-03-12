@@ -1,3 +1,5 @@
+import './dictionary.css'
+
 function Dictionary() {
     return (
         <div className="dictionary-screen">
