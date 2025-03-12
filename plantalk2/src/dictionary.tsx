@@ -18,6 +18,10 @@ function Dictionary() {
                     性格: <br></br>
                     まめちしき: <br></br>
                 </p>
+                <div className='dictionary-button'>
+                    <button className='button-back'>b</button>
+                    <button className='button-next'>n</button>
+                </div>
             </div>
         </div>
     )

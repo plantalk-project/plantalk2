@@ -33,3 +33,28 @@
     margin: 2rem;
     border-radius: 15px;
 }
+
+.dictionary-button button{
+    color:black;
+    margin: 2rem;
+}
+
+.button-back{
+    box-sizing: border-box;
+
+    background: #FFFFFF;
+    border: 6px solid #94C989;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+/*    transform: rotate(-90deg);*/
+}
+
+.button-next{
+    box-sizing: border-box;
+
+    background: #FFFFFF;
+    border: 6px solid #94C989;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+/*    transform: rotate(90deg);*/
+}
