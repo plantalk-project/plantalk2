@@ -1,0 +1,34 @@
+.calender-title {
+  width: 100%;
+  height: 100vh;
+  max-height: 844px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.calender-title-text{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+table{
+    border-collapse: separate;
+    border-spacing: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+table th,
+table td {
+  border: 1px solid #000;
+}
+
+table td {
+  text-align: center;
+  height: 60px;
+}
