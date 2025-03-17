@@ -1,0 +1,182 @@
+.title-screen {
+    width: 100%;
+    max-width: 390px;
+    height: 100vh;
+    max-height: 844px;
+    background-color: #8BB795;
+    position: relative;
+    overflow: hidden;
+}  
+.white-circle {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+} 
+.circle-1 {
+    width: 150px;
+    height: 150px;
+    top: 20px;
+    right: 20px;
+}
+
+.circle-2 {
+    width: 80px;
+    height: 80px;
+    top: 100px;
+    left: 40px;
+}
+
+.circle-3 {
+    width: 250px;
+    height: 250px;
+    bottom: -50px;
+    right: -50px;
+}
+
+.content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+    margin: 0;
+    padding: 20px 40px;
+    background: white;
+    border-radius: 15px;
+}
+
+.start-text {
+    font-size: 1.2rem;
+    color: black;
+}
+
+
+@media (max-width: 390px) {
+    .title-screen {
+    max-width: 100%;
+    }
+
+    .circle-1 {
+    width: 120px;
+    height: 120px;
+    }
+
+    .circle-2 {
+    width: 60px;
+    height: 60px;
+    }
+
+    .circle-3 {
+    width: 200px;
+    height: 200px;
+    }
+
+    .title {
+    font-size: 2rem;
+    padding: 15px 30px;
+    }
+
+    .start-text {
+    font-size: 1rem;
+    }
+}
+
+@media (max-height: 700px) {
+    .content {
+    gap: 2rem;
+    }
+
+    .title {
+    font-size: 2rem;
+    padding: 15px 30px;
+    }
+}
+
+@media (min-width: 390px) {
+    .title-screen {
+    max-width: 100%;
+    }
+
+    .circle-1 {
+    width: 150px;
+    height: 150px;
+    }
+
+    .circle-2 {
+    width: 80px;
+    height: 80px;
+    }
+
+    .circle-3 {
+    width: 250px;
+    height: 250px;
+    }
+
+    .title {
+    font-size: 2.5rem;
+    padding: 20px 40px;
+    }
+
+    .start-text {
+    font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .title-screen {
+    max-width: 100%;
+    max-height: 900px;
+    }
+
+    .circle-1 {
+    width: 180px;
+    height: 180px;
+    }
+
+    .circle-2 {
+    width: 100px;
+    height: 100px;
+    }
+
+    .circle-3 {
+    width: 300px;
+    height: 300px;
+    }
+
+    .title {
+    font-size: 3rem;
+    }
+
+    .start-text {
+    font-size: 1.4rem;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+    .title-screen {
+    height: 100vh;
+    max-height: none;
+    }
+
+    .content {
+    gap: 1.5rem;
+    }
+
+    .title {
+    font-size: 1.8rem;
+    padding: 12px 25px;
+    }
+
+    .start-text {
+    font-size: 1rem;
+    }
+}
+
