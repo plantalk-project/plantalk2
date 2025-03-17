@@ -3,6 +3,7 @@ import Login from './login'
 import Dictionary from './dictionary'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Title from './Title';
+import Newregistrationscreen from './Newregistrationscreen';
 
 const App: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Title />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/newregistrationscreen" element={<Newregistrationscreen />} />
         <Route path='/dictionary' element={<Dictionary />} />
       </Routes>
     </BrowserRouter>

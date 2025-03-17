@@ -6,7 +6,7 @@ const RegisterSection: React.FC = () => {
   return (
     <div className="register-container">
       <p>新しくきた人はこっちで登録してね</p>
-      <Link to="/Newregistrationscreen" className="next-button">次へ</Link>
+      <Link to="/newregistrationscreen" className="next-button">次へ</Link>
     </div>
   );
 };
