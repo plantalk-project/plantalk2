@@ -3,7 +3,7 @@ import { useAtom, PrimitiveAtom } from 'jotai';
 
 interface InputWithIconProps {
   label: string;
-  type: 'text' | 'password';
+  type: 'text' | 'mail'|'password';
   atom: PrimitiveAtom<string>;
 }
 

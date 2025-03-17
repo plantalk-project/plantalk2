@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAtom } from 'jotai';
 import InputWithIcon from './InputWithIcon';
-import { usernameAtom, passwordAtom, isLoggedInAtom } from '../atoms/authAtoms';
+import { usernameAtom, passwordAtom, isLoggedInAtom, mailAtom } from '../atoms/authAtoms';
 
 const LoginForm: React.FC = () => {
   const [username] = useAtom(usernameAtom);
@@ -22,6 +22,11 @@ const LoginForm: React.FC = () => {
         label="あなたの名前を教えてね"
         type="text"
         atom={usernameAtom}
+      />
+      <InputWithIcon
+        label="メールアドレスを打ってね"
+        type="mail"
+        atom={mailAtom}
       />
       <InputWithIcon 
         label="パスワードを打ってね"
