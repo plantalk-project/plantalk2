@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './RegisterSection.css';
 
 const RegisterSection: React.FC = () => {
   return (
