@@ -1,0 +1,21 @@
+.register-container {
+    text-align: center;
+    background-color: #8BB795;
+}
+
+.register-container p {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.next-button {
+    background: white;
+    border: 2px solid var(--sage-green);
+    color: var(--sage-green);
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto 0;
+}
