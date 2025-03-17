@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom';
 import { mailAtom, passwordAtom, usernameAtom } from './atoms/authAtoms'
 import InputWithIcon from './components/InputWithIcon';
+import './Newregistrationscreen.css'
 
 const Newregistrationscreen = () => {
   const passwordnum: number = passwordAtom.toString.length;
@@ -28,13 +30,13 @@ const Newregistrationscreen = () => {
         />
         <div className = 'password-container'>
           <InputWithIcon 
-            label="パスワードを打ってね"
+            label="パスワードを決めてね"
             type="password"
             atom={passwordAtom}
           />
         </div>
         <p className='password-emergency'>6文字以上で設定してね</p>
-        <button className="ok-button" onClick={handleRegister}>OK</button>
+        <Link className="ok-button" onClick={handleRegister} to='/plantname'>次へ</Link>
       </div>
     </div>
   )
