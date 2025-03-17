@@ -1,9 +1,8 @@
 import React from 'react'
-import Login from './Login'
+import Login from './login'
 import Dictionary from './dictionary'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Title from './components/Title';
-
+import Title from './Title';
 
 const App: React.FC = () => {
   return (
