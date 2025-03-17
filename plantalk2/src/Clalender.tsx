@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Calender.css";
 import {
   eachDayOfInterval,
@@ -10,16 +10,20 @@ import {
   getDay,
   startOfMonth,
 } from "date-fns";
+import Modal from "./Modal";
+import { useAtom } from "jotai";
+import { modalWindowAtom } from "./atoms/isModal";
+import { getDateAtom } from "./atoms/dateAtoms";
 
 interface getCalenderArrayProps {
-  selectMonth:Date;
+  selectMonth: Date;
 }
 
-function Clalender({selectMonth}:getCalenderArrayProps) {
+function Clalender({ selectMonth }: getCalenderArrayProps) {
+  const [modalOpen, isModalOpen] = useAtom(modalWindowAtom);
+  const [date, setDate] = useAtom(getDateAtom);
 
   const getCalenderArray = (date: Date) => {
-
-
     //1ヶ月分の日曜日の日付を取得
     const sundays = eachWeekOfInterval({
       start: startOfMonth(date),
@@ -32,23 +36,25 @@ function Clalender({selectMonth}:getCalenderArrayProps) {
     );
   };
 
-  const date = new Date();
+  
 
   //getCalenderArray()の中はdate以外でも大丈夫
   const calender = getCalenderArray(selectMonth);
 
-  const calenderModal = (date:number) => {
-    console.log("calenderModal", date);
-  }
+  const calenderModal = (date: number) => {
+    isModalOpen(true);
+    console.log("modalOpen", date);
+    setDate(date);
+  };
+
+  console.log("date", date);
 
   return (
     <div >
-
-
       {/* <div className="calender-title-text">{format(date, "y年M月")}</div> */}
       <table className="calender-table">
         <thead>
-          <tr>
+          <tr className="calender-table-thead-tr">
             <th>日</th>
             <th>月</th>
             <th>火</th>
@@ -61,9 +67,17 @@ function Clalender({selectMonth}:getCalenderArrayProps) {
         <tbody>
           {calender.map((weekRow, rowNum) => (
             <tr key={rowNum}>
-              {weekRow.map((date) => (
+              {weekRow.map((date,index) => (
                 //dateの日付標識を変更して出力
-                <td key={getDay(date)} onClick={() => calenderModal(getDate(date))}>{getDate(date)}</td>
+                
+                <td
+                  key={getDay(date)}
+                  onClick={() => calenderModal(getDate(date))}
+                  className = {index % 2 == 0 ? "calender-table-td-even" : "calender-table-td-odd"}
+                >
+                  <div className="calender-table-td-text">{getDate(date)}</div>
+                  
+                </td>
               ))}
             </tr>
           ))}
