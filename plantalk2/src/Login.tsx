@@ -2,6 +2,7 @@ import { useAtom } from 'jotai'
 import LoginForm from './components/LoginForm'
 import RegisterSection from './components/RegisterSection'
 import { isLoggedInAtom } from './atoms/authAtoms'
+import './Login.css'
 
 function Login() {
   const [isLoggedIn] = useAtom(isLoggedInAtom)
