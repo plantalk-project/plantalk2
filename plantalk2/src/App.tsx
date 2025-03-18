@@ -26,7 +26,6 @@ const App: React.FC = () => {
           <Route path='plantname' element={<PlantName />} />
           <Route path="/dictionary" element={<Dictionary />} />
           </Routes>
-      </div>
     </BrowserRouter>
   );
 };
