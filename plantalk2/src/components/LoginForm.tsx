@@ -21,7 +21,7 @@ const LoginForm: React.FC = () => {
     <div className="login-container">
       <InputWithIcon 
         label="あなたの名前を教えてね"
-        type="text"
+        type="username"
         atom={usernameAtom}
       />
       <InputWithIcon

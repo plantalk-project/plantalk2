@@ -20,7 +20,7 @@ const Newregistrationscreen = () => {
       <div className="new-registration-container">
         <InputWithIcon 
           label="あなたの名前を教えてね"
-          type="text"
+          type="username"
           atom={usernameAtom}
         />
         <InputWithIcon
