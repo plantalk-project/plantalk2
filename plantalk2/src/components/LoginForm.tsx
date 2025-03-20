@@ -19,6 +19,7 @@ const LoginForm: React.FC = () => {
 
   return (
     <div className="login-container">
+      <h2 className='login-character'>ログイン</h2>
       <InputWithIcon 
         label="あなたの名前を教えてね"
         type="username"

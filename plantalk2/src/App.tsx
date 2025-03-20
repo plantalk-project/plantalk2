@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "./login";
+import Login from "./Login";
 import Dictionary from "./dictionary";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Title from './Title';

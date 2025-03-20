@@ -17,6 +17,7 @@ const Newregistrationscreen = () => {
   }
   return (
     <div className = 'new-registration-screen'>
+      <h2 className = 'new-registration-character'>新規登録</h2>
       <div className="new-registration-container">
         <InputWithIcon 
           label="あなたの名前を教えてね"
