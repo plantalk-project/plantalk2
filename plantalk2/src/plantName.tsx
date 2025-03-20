@@ -5,6 +5,7 @@ import './PlantName.css'
 const PlantName = () => {
   return (
     <div className="plantname-screen">
+      <h2 className="new-registration-character">新規登録画面</h2>
         <div className="plantname-container">
             <InputWithIcon 
             label="植物につけたい名前をつけてね"
