@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAtom } from 'jotai';
-import InputWithIcon from './InputWithIcon';
-import { usernameAtom, passwordAtom, isLoggedInAtom, mailAtom } from '../atoms/authAtoms';
+import InputWithIcon from '../InputwithIcon/InputWithIcon';
+import { usernameAtom, passwordAtom, isLoggedInAtom, mailAtom } from '../../atoms/authAtoms';
 import './LoginForm.css'
 
 const LoginForm: React.FC = () => {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { mailAtom, passwordAtom, usernameAtom } from './atoms/authAtoms'
-import InputWithIcon from './components/InputWithIcon';
+import InputWithIcon from './components/InputwithIcon/InputWithIcon';
 import './Newregistrationscreen.css'
 
 const Newregistrationscreen = () => {
