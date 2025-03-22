@@ -1,5 +1,5 @@
 import { plantnameAtom, planttypeAtom } from "./atoms/authAtoms"
-import InputWithIcon from "./components/InputWithIcon"
+import InputWithIcon from "./components/InputwithIcon/InputWithIcon"
 import './PlantName.css'
 
 const PlantName = () => {

@@ -1,6 +1,6 @@
 import { useAtom } from 'jotai'
-import LoginForm from './components/LoginForm'
-import RegisterSection from './components/RegisterSection'
+import LoginForm from './components/loginform/LoginForm'
+import RegisterSection from './components/RegisterSection/RegisterSection'
 import { isLoggedInAtom } from './atoms/authAtoms'
 import './Login.css'
 
