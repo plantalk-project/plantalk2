@@ -3,7 +3,6 @@
   background: #ffffff;
   // height: 440px;
   border-radius: 30px 30px 0px 0px;
-  color: #ff6085;
   z-index: 10;
   position: fixed;
   display: flex;
@@ -12,8 +11,6 @@
   bottom: 0;
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.14);
   overflow: hidden;
-  
-  
 }
 /* .modal-container{
     position: fixed;
@@ -25,3 +22,10 @@
     justify-content: center;
     align-items: center;
   } */
+
+.modal-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}

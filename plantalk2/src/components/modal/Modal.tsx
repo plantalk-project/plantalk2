@@ -1,13 +1,11 @@
 import { motion } from "framer-motion";
 import "./Modal.css";
 import { useAtom } from "jotai";
-import { modalWindowAtom } from "./atoms/isModal";
-import { getDateAtom } from "./atoms/dateAtoms";
+import { modalWindowAtom } from "../../atoms/isModal";
+import Diary from "./Diary";
 
 function Modal() {
   const [modalOpen, isModalOpen] = useAtom(modalWindowAtom);
-  const [date, setDate] = useAtom(getDateAtom);
-
   return (
     <div className="modal-container">
       {modalOpen ? (
@@ -38,8 +36,7 @@ function Modal() {
             if (info.offset.y > 100) isModalOpen(false);
           }}
         >
-          
-          <div>{date}</div>
+          <Diary />
         </motion.div>
       ) : (
         <></>
