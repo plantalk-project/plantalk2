@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Input from "../layout/Input";
+import { modalTokenAtom } from "../atoms/tokenAtoms";
+import { useAtom } from "jotai";
 
 
 function Users() {
-    
+    const [token, setToken] = useAtom(modalTokenAtom)
     const form2 = useForm();
     const navigate = useNavigate();
     const fetchPrivatePosts = async () => {
@@ -48,6 +50,7 @@ function Users() {
   
         if (response.ok) {
           localStorage.setItem("token", result.token);
+          setToken(result.token);
           console.log("ログイン成功", result);
   
           const privateMessage = await fetchPrivatePosts();

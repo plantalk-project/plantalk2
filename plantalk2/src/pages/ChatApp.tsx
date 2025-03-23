@@ -23,6 +23,7 @@ export default function ChatApp() {
       recordedAt: Date;
     }[]
   >([]);
+
   const [token, setToken] = useState(localStorage.getItem("token") || ""); //トークンの値を取得
 
   //ローカルストレージからトークンの値を取得
