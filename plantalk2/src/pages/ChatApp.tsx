@@ -65,6 +65,8 @@ export default function ChatApp() {
 
   const form2 = useForm();
 
+  console.log("token", token);
+
   //メッセージを送信する関数
   const postLogin = async () => {
     //メッセージを送信するデータを作成

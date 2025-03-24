@@ -4,11 +4,13 @@ import { useAtom } from "jotai";
 import "./Diary.css";
 import { Icon } from "@iconify/react";
 import { ReactSVG } from "react-svg";
+import { growthStateAtom } from "../../atoms/growthStateAtom";
 
 function Diary() {
   const [date, setDate] = useAtom(getDateAtom);
   const [month, setMonth] = useAtom(getMonthAtom);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [growthState, setGrowthState] = useAtom(growthStateAtom);
   const event = {
     emoji: 0,
     growth: 0,
@@ -42,9 +44,22 @@ function Diary() {
         },
         body: JSON.stringify(data),
       });
+      const now = new Date();
+      const nowYear = now.getFullYear();
+
       console.log("data", data);
       const result = await response.json();
       console.log("result", result);
+
+      if (month && date) {
+        const SaveData = new Date(nowYear, month-1, date);
+        console.log("SaveData", SaveData);
+        setGrowthState((prev) => [
+          ...prev,
+          { grouth: event.growth.toString(), date: SaveData },
+        ]);
+      }
+      
     } catch (error) {
       console.log("error", error);
     }
@@ -61,6 +76,7 @@ function Diary() {
   };
 
   const handleEvent = () => {
+    //setGrowthState((prev) => [...prev, {grouth:event.growthState, date:event.recorrdedAt}]);
     clickGetEvent(event, "http://localhost:3003/calendar");
   };
 
@@ -88,10 +104,20 @@ function Diary() {
       <span>できごと</span>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <ReactSVG src="/img/wither.svg" onClick={() => handleClickSave(1)} />
-        <ReactSVG src="/img/germinated.svg" onClick={() => handleClickSave(2)} />
+        <ReactSVG
+          src="/img/germinated.svg"
+          onClick={() => handleClickSave(2)}
+        />
         <ReactSVG src="/img/bloomed.svg" onClick={() => handleClickSave(3)} />
         <ReactSVG src="/img/harvest.svg" onClick={() => handleClickSave(4)} />
         <ReactSVG src="/img/plant.svg" onClick={() => handleClickSave(5)} />
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <ReactSVG src="/img/wither_calendar.svg" />
+        <ReactSVG src="/img/germinated_calendar.svg" />
+        <ReactSVG src="/img/bloomed_calendar.svg" />
+        <ReactSVG src="/img/harvest_calendar.svg" />
+        <ReactSVG src="/img/plant_calendar.svg" />
       </div>
       <button onClick={() => handleEvent()}>保存</button>
     </div>

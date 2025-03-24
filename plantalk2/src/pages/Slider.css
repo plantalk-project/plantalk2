@@ -1,54 +1,97 @@
 body {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: "M PLUS Rounded 1c", sans-serif;
   margin: 0;
 }
 .modalOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 40;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 40;
+}
+.slider-title {
+  font-size: 8vw;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  padding-top: 12vw;
+}
 .calender-title {
-    border: 5px solid #719860;
-    padding: 0 10px;
-    height: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    width: 80%;
-    flex-flow: column;
-    border-radius: 10px;
-  }
-  .calender-title-text {
-    padding-top: 10px;
-    font-size: 17px;
-    font-weight: bold;
-    -webkit-text-stroke: 6px #719860;
-    text-stroke: 2px #719860;
-    paint-order: stroke;
-    color: white;
-  }
+  padding: 0 10px;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 80%;
+  flex-flow: column;
+  border-radius: 10px;
+}
+
+.square-left {
+  width: 30px;
+  height: 60px;
+  margin-top: 50px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 25vw;
+  z-index: 70;
+  border-radius: 10px;
+}
+.square-right {
+  width: 30px;
+  height: 60px;
+  margin-top: 50px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: 25vw;
+  z-index: 70;
+  border-radius: 10px;
+}
+
+.square-top {
+  background-color: #42695a;
+  width: 64vw;
+  height: 40px;
+  top: 80px;
+  position: absolute;
+  border-radius: 10px;
+  z-index: 60;
+}
+
+.calender-title-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 30px;
+}
+
+.calender-title-text {
+
+  font-size: 25px;
+  font-weight: bold;
+  -webkit-text-stroke: 5px white;
+  text-stroke: 2px white;
+  paint-order: stroke;
+  color: #42695a;
+
+}
+
+
+.form {
+  position: relative;
+  display: flex;
+  z-index: 50;
+  width: 100%;
+}
 
   .slider-prev-button{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 50;
+    padding-right: 10px;
   }
-
   .slider-next-button{
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 50;
-  }
-
-  .form {
-    position: relative;
-    display: flex;
-    z-index: 50;
-    width: 100%;
+    padding-left: 10px;
   }
