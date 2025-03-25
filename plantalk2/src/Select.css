@@ -1,0 +1,26 @@
+.login-screen {
+    width: 100%;
+    height: 100vh;
+    max-height: 844px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.login-form-button, .register-section-button{
+  background-color: #4A6B5D; 
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 0px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: block;
+  width: 200px;
+  text-align: center;
+  margin: 5px auto;
+}

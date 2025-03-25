@@ -1,11 +1,6 @@
 .input-group {
     margin-bottom: 2rem;
-}
-
-.input-group label {
-    display: block;
-    color: white;
-    margin-bottom: 0.5rem;
+    background-color: #42695A;
 }
 
 .input-with-icon {

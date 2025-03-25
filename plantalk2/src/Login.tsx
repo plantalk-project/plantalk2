@@ -1,26 +1,12 @@
-import { useAtom } from 'jotai'
-import LoginForm from './components/loginform/LoginForm'
-import RegisterSection from './components/RegisterSection/RegisterSection'
-import { isLoggedInAtom } from './atoms/authAtoms'
-import './Login.css'
+import LoginForm from './components/loginform/LoginForm';
+import './Login.css';
 
-function Login() {
-  const [isLoggedIn] = useAtom(isLoggedInAtom)
-
-  if (isLoggedIn) {
-    return (
-      <div className="login-screen">
-        <h2>ログインしました！</h2>
-      </div>
-    )
-  }
-
+const Login = () => {
   return (
-    <div className="login-screen">
-      <LoginForm />
-      <RegisterSection />
+    <div className='login-screen'>
+        <LoginForm />
     </div>
   )
 }
 
-export default Login 
+export default Login

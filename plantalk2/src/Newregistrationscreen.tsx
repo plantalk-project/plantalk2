@@ -20,20 +20,20 @@ const Newregistrationscreen = () => {
       <h2 className = 'new-registration-character'>新規登録</h2>
       <div className="new-registration-container">
         <InputWithIcon 
-          label="あなたの名前を教えてね"
           type="username"
           atom={usernameAtom}
+          placeholder='ユーザー名'
         />
         <InputWithIcon
-          label="メールアドレスを打ってね"
           type="mail"
           atom={mailAtom}
+          placeholder='メールアドレス'
         />
         <div className = 'password-container'>
           <InputWithIcon 
-            label="パスワードを決めてね"
             type="password"
             atom={passwordAtom}
+            placeholder='パスワード'
           />
         </div>
         <p className='password-emergency'>6文字以上で設定してね</p>

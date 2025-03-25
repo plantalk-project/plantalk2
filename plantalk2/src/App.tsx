@@ -8,6 +8,7 @@ import PlantName from './plantName';
 import Clalender from "./Clalender";
 import Slider from "./Slider";
 import Modal from "./Modal";
+import Select from "./Select";
 
 
 const App: React.FC = () => {
@@ -15,15 +16,16 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Title />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/select" element={<Select />} />
           <Route path="/calender" element={<Clalender />} />
           <Route path="/slider" element={<Slider />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/modal" element={<Modal />} />
           <Route
             path="/newregistrationscreen"
             element={<Newregistrationscreen />}
           />
-          <Route path='plantname' element={<PlantName />} />
+          <Route path='/plantname' element={<PlantName />} />
           <Route path="/dictionary" element={<Dictionary />} />
           </Routes>
     </BrowserRouter>
