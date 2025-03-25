@@ -52,7 +52,7 @@ function Diary() {
       console.log("result", result);
 
       if (month && date) {
-        const SaveData = new Date(nowYear, month-1, date);
+        const SaveData = new Date(nowYear, month-1, date );
         console.log("SaveData", SaveData);
         setGrowthState((prev) => [
           ...prev,
