@@ -10,6 +10,9 @@ import { useAtom } from "jotai";
 import { modalWindowAtom } from "../atoms/isModal";
 import "./Slider.css";
 import { growthStateAtom } from "../atoms/growthStateAtom";
+import Popota from "../components/Popota";
+import Title from "../Title";
+import PlanTalk from "../components/Plantalk";
 function Slider() {
   const [slideIndex, setSlideIndex] = useState(0);
   const initialMonth = new Date();
@@ -34,13 +37,14 @@ function Slider() {
         );
 
         const data = await response.json();
-        console.log("data.eventHistory",data.eventHistory)
-        
+
         //setGrowthState(data.eventHistory);
         data.eventHistory.forEach((event) => {
-          console.log("event", event);
           const dateObject = new Date(event.recordedAt);
-          setGrowthState((prev) => [...prev, {grouth:event.growthState.toString(), date:dateObject}]);
+          setGrowthState((prev) => [
+            ...prev,
+            { grouth: event.growthState.toString(), date: dateObject },
+          ]);
         });
         console.log("取得したチャット履歴:", data);
       } catch (error) {
@@ -55,30 +59,28 @@ function Slider() {
     }
   }, []);
 
-  console.log("token", token);
-
   return (
     <div
       style={{
         width: "100%",
         minHeight: "100vh",
-        backgroundColor: "#42695A",
-        marginTop: "0",
+        overflow: "hidden",
+        
       }}
     >
       {modalOpen && (
         <div className="modalOverlay" onClick={() => isModalOpen(false)} />
       )}
-      <div className="slider-title">成長カレンダー</div>
-      <div>
+      <div className="slider-title"><PlanTalk/></div>
+      <div >
         <Swiper
           spaceBetween={70}
           onSlideChange={(swiper) => {
-            console.log("slide change");
             setSlideIndex(swiper.activeIndex - 1);
           }}
           onSwiper={(swiper) => console.log(swiper)}
           initialSlide={1}
+          style={{paddingTop:"3vw"}}
         >
           {[...Array(5)].map((_, index) => {
             return (
@@ -86,18 +88,18 @@ function Slider() {
                 <div className="calender-title">
                   <div className="square-left" />
                   <div className="square-right" />
-                  <div className="square-top" />
+                  <div className="square-top">
+                    <div className="calender-title-text-container">
+                      <div className="slider-prev-button">
+                        <SlidePrevButton />
+                      </div>
+                      <div className="calender-title-text">
+                        {format(addMonths(initialMonth, index - 1), "y年M月")}
+                      </div>
 
-                  <div className="calender-title-text-container">
-                    <div className="slider-prev-button">
-                      <SlidePrevButton />
-                    </div>
-                    <div className="calender-title-text">
-                      {format(addMonths(initialMonth, index - 1), "y年M月")}
-                    </div>
-
-                    <div className="slider-next-button">
-                      <SlideNextButton />
+                      <div className="slider-next-button">
+                        <SlideNextButton />
+                      </div>
                     </div>
                   </div>
 
@@ -111,6 +113,9 @@ function Slider() {
             );
           })}
         </Swiper>
+      </div>
+      <div className="popota">
+        <Popota />
       </div>
       <div className="form">
         <Modal />

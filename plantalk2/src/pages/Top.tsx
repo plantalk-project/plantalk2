@@ -26,6 +26,7 @@ function Top() {
         },
       });
       const data = await response.json();
+      console.log("data", data);
 
       if (response.ok) {
         return data;
@@ -49,6 +50,9 @@ function Top() {
       });
       console.log("data", data);
       const result = await response.json();
+
+      
+
       if (response.ok) {
         localStorage.setItem("token", result.token);
         console.log("ログイン成功", result);
