@@ -16,9 +16,9 @@ const Newregistrationscreen = () => {
     }
   }
   return (
-    <div className = 'new-registration-screen'>
-      <h2 className = 'new-registration-character'>新規登録</h2>
-      <div className="new-registration-container">
+    <div className="new-registration-screen">
+      <img src="/plantalk2.png" alt="PlantTalk Logo" className="logo-image3" />
+      <div className="new-registration-container">  
         <InputWithIcon 
           type="username"
           atom={usernameAtom}
@@ -29,15 +29,15 @@ const Newregistrationscreen = () => {
           atom={mailAtom}
           placeholder='メールアドレス'
         />
-        <div className = 'password-container'>
+
           <InputWithIcon 
             type="password"
             atom={passwordAtom}
             placeholder='パスワード'
           />
-        </div>
+
         <p className='password-emergency'>6文字以上で設定してね</p>
-        <Link className="ok-button" onClick={handleRegister} to='/plantname'>次へ</Link>
+        <Link className="ok-button" onClick={handleRegister} to='/plantname'>新規登録</Link>
       </div>
     </div>
   )

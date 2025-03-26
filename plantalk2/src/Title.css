@@ -3,7 +3,7 @@
     max-width: 390px;
     height: 100vh;
     max-height: 844px;
-    background-color: #42695A;
+    background-color: #5BC8AC;
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -22,8 +22,14 @@
     font-size: 1.2rem;
     color: black;
     height:100%;
+    width: 100%;
     display: block;
     text-decoration: none;
+}
+
+logo-image{
+    width: 100%;
+    height: 100%;
 }
 
 

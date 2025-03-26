@@ -12,7 +12,7 @@
 }
 
 .login-form-button, .register-section-button{
-  background-color: #4A6B5D; 
+  background-color: #F18D9E; 
   color: white;
   border: none;
   border-radius: 25px;
@@ -23,4 +23,8 @@
   width: 200px;
   text-align: center;
   margin: 5px auto;
+}
+
+.logo-image2{
+
 }

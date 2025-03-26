@@ -7,40 +7,6 @@
     background-color: white;
 }
 
-.input-group {
-    margin-bottom: 1.5rem;
-    background-color: #42695A;
-    border-radius: 8px;
-}
-
-.input-with-icon {
-    position: relative;
-    background: white;
-    border-radius: 8px;
-    padding: 0.5rem;
-    margin: 0.7rem;
-}
-
-.input-with-icon input {
-    width: 100%;
-    border: none;
-    padding: 0.5rem;
-    font-size: 1rem;
-    background: transparent;
-}
-
-.input-with-icon input:focus {
-    outline: none;
-}
-
-.pencil-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--sage-green);
-}
-
 .ok-button {
     background: #42695A;
     color: var(--sage-green);

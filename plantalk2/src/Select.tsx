@@ -10,6 +10,7 @@ function Select() {
 
   return (
     <div className="login-screen">
+      <img src="/plantalk2.png" alt="PlantTalk Logo" className="logo-image2" />
       <Link className="login-form-button" to="/login" >ログイン</Link>
       <Link className="register-section-button" to="/newregistrationscreen">新規登録</Link>
     </div>

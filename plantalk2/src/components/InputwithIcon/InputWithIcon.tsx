@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAtom, PrimitiveAtom } from 'jotai';
+import './InputWithIcon.css';
 
 interface InputWithIconProps {
   type: 'username' | 'password' | 'mail'| 'plantname'| 'planttype';
@@ -19,7 +20,7 @@ const InputWithIcon: React.FC<InputWithIconProps> = ({ type, atom, placeholder }
           placeholder={placeholder}
           onChange={(e) => setValue(e.target.value)}
         />
-        <span className="pencil-icon">✎</span>
+            <img src="/pencilIcon.png" alt="pencil icon" className='pencil-icon'/>
       </div>
     </div>
   );
