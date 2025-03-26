@@ -13,6 +13,10 @@ import Users from "./pages/Users";
 import Top from "./pages/Top";
 import Mypage from "./pages/Mypage";
 import ChatApp from "./pages/ChatApp";
+import Popota from "./components/Popota";
+import Flower from "./layout/Flower";
+import FlowerGreen from "./layout/Flower";
+import FlowerPink from "./layout/FlowerPink";
 
 const App: React.FC = () => {
   return (
@@ -32,6 +36,11 @@ const App: React.FC = () => {
         <Route path="/top" element={<Top />} />
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/chat" element={<ChatApp />} />
+        <Route path="/popota" element={<Popota />} />
+        <Route path="/flowergreen" element={<FlowerGreen />} />
+        <Route path="/flowerpink" element={<FlowerPink />} />
+        
+
       </Routes>
     </BrowserRouter>
   );

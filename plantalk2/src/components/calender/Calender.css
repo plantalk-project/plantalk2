@@ -1,25 +1,31 @@
-.calender-container{
+.calender-container {
+  //overflow: visible;
+  overflow: hidden;
+  border: 13px solid #5bc8ac;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.calender-container table {
+  border-collapse: collapse;
+  border: 20px solid white;
+  background-color: white;
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+.calender-container table td,
+.calender-container table th {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  //overflow: hidden;
+  border: 2px solid #d2d2d2;
 }
 
-.calender-table {
-  border-collapse: separate;
-  border-spacing: 13px;
-}
-
-.calender-table-thead-tr {
-  background-color: #B4ECA9;
-  color:white;
-}
-
-.calender-container table th,
-.calender-container table td {
-  border: 1px solid #000;
+.calender-container table th {
   width: 100px;
+  border-bottom: 3px solid #5bc8ac;
+  background-color: white;
+  padding-top: 30px;
 }
 
 .calender-container table td {
@@ -27,34 +33,19 @@
 }
 
 .calender-table-td-text {
-  position: absolute;
-  top: 5px;
-  left: 1px;
+  position: relative;
+  top:-10px;
   font-size: 3vw;
-  -webkit-text-stroke: 2px white;
-  text-stroke: 2px black;
-  paint-order: stroke;
-  color: #B4ECA9;
 }
 
-.calender-table-td-even {
-  
-  height: 10vw;
-  background-color: #B4ECA9;
+.calender-table-td {
+  height: 6vh;
+  background-color: white;
 }
 
-.calender-table-td-odd {
-
-  height: 14vw;
-  background-color: #A9E7EC;
-}
-
-
-
-.slider-title {
-  font-size: 10vw;
-  font-weight: bold;
-  text-align: center;
-  color: #2f861e;
-  margin-top: 30px;
+.calender-icon {
+  position: absolute;
+  top: 4vw;
+  left: 2vw;
+  margin: auto;
 }
