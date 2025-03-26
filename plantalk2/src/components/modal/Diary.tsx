@@ -5,21 +5,26 @@ import "./Diary.css";
 import { Icon } from "@iconify/react";
 import { ReactSVG } from "react-svg";
 import { growthStateAtom } from "../../atoms/growthStateAtom";
+import Input from "../../layout/Input";
+import { useForm } from "react-hook-form";
 
 function Diary() {
   const [date, setDate] = useAtom(getDateAtom);
   const [month, setMonth] = useAtom(getMonthAtom);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [growthState, setGrowthState] = useAtom(growthStateAtom);
+  const formName = useForm();
   const event = {
     emoji: 0,
     growth: 0,
+    diary:""
   };
 
   const clickGetEvent = async (
     event: {
       emoji: number;
       growth: number;
+      diary:string;
     },
     link: string
   ) => {
@@ -33,6 +38,8 @@ function Diary() {
       alert("選択してください");
       return;
     }
+
+    console.log("event",event)
 
     try {
       const response = await fetch(link, {
@@ -52,14 +59,13 @@ function Diary() {
       console.log("result", result);
 
       if (month && date) {
-        const SaveData = new Date(nowYear, month-1, date );
+        const SaveData = new Date(nowYear, month - 1, date);
         console.log("SaveData", SaveData);
         setGrowthState((prev) => [
           ...prev,
           { grouth: event.growth.toString(), date: SaveData },
         ]);
       }
-      
     } catch (error) {
       console.log("error", error);
     }
@@ -75,9 +81,11 @@ function Diary() {
     console.log("event", event.growth);
   };
 
-  const handleEvent = () => {
+  const handleEvent = (data:{diary:string}) => {
     //setGrowthState((prev) => [...prev, {grouth:event.growthState, date:event.recorrdedAt}]);
+    event.diary = data.diary
     clickGetEvent(event, "http://localhost:3003/calendar");
+    console.log("formName.register",typeof data.diary)
   };
 
   return (
@@ -85,41 +93,43 @@ function Diary() {
       <div>
         <span>{month}</span>月<span>{date}</span>日
       </div>
-      <div>この日の振り返り</div>
-      <div>水やり</div>
-      <div>植物の健康状態</div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <ReactSVG
-          src="/img/dissatisfied.svg"
-          onClick={() => handleClickEmoji(1)}
+      <form onSubmit={formName.handleSubmit(handleEvent)}>
+        <Input
+          label={"今日起きたことを自由に書いてみよう"}
+          fieldName={"diary"}
+          id={"1"}
+          register={formName.register}
         />
-        <ReactSVG src="/img/dizzy.svg" onClick={() => handleClickEmoji(2)} />
-        <ReactSVG
-          src="/img/satisfied.svg"
-          onClick={() => handleClickEmoji(3)}
-        />
-        <ReactSVG src="/img/wink.svg" onClick={() => handleClickEmoji(4)} />
-        <ReactSVG src="/img/cool.svg" onClick={() => handleClickEmoji(5)} />
-      </div>
-      <span>できごと</span>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <ReactSVG src="/img/wither.svg" onClick={() => handleClickSave(1)} />
-        <ReactSVG
-          src="/img/germinated.svg"
-          onClick={() => handleClickSave(2)}
-        />
-        <ReactSVG src="/img/bloomed.svg" onClick={() => handleClickSave(3)} />
-        <ReactSVG src="/img/harvest.svg" onClick={() => handleClickSave(4)} />
-        <ReactSVG src="/img/plant.svg" onClick={() => handleClickSave(5)} />
-      </div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <ReactSVG src="/img/wither_calendar.svg" />
-        <ReactSVG src="/img/germinated_calendar.svg" />
-        <ReactSVG src="/img/bloomed_calendar.svg" />
-        <ReactSVG src="/img/harvest_calendar.svg" />
-        <ReactSVG src="/img/plant_calendar.svg" />
-      </div>
-      <button onClick={() => handleEvent()}>保存</button>
+        <div>水やり</div>
+        <div>植物の健康状態</div>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <ReactSVG
+            src="/img/dissatisfied.svg"
+            onClick={() => handleClickEmoji(1)}
+          />
+          <ReactSVG src="/img/dizzy.svg" onClick={() => handleClickEmoji(2)} />
+          <ReactSVG
+            src="/img/satisfied.svg"
+            onClick={() => handleClickEmoji(3)}
+          />
+          <ReactSVG src="/img/wink.svg" onClick={() => handleClickEmoji(4)} />
+          <ReactSVG src="/img/cool.svg" onClick={() => handleClickEmoji(5)} />
+        </div>
+        <span>できごと</span>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <ReactSVG src="/img/wither.svg" onClick={() => handleClickSave(1)} />
+          <ReactSVG
+            src="/img/germinated.svg"
+            onClick={() => handleClickSave(2)}
+          />
+          <ReactSVG src="/img/bloomed.svg" onClick={() => handleClickSave(3)} />
+          <ReactSVG src="/img/harvest.svg" onClick={() => handleClickSave(4)} />
+          <ReactSVG src="/img/plant.svg" onClick={() => handleClickSave(5)} />
+        </div>
+        
+        {/* <button onClick={() => handleEvent()}>保存</button> */}
+        <button type="submit">保存</button>
+      </form>
     </div>
   );
 }
