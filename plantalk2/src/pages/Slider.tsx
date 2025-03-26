@@ -4,7 +4,7 @@ import { SlidePrevButton } from "../components/calender/SlideprevButton";
 import { SlideNextButton } from "../components/calender/SlideNextButton";
 import "swiper/css";
 import Clalender from "../components/calender/Clalender";
-import { addMonths, format } from "date-fns";
+import { addMonths, format, getDate, getMonth } from "date-fns";
 import Modal from "../components/modal/Modal";
 import { useAtom } from "jotai";
 import { modalWindowAtom } from "../atoms/isModal";
@@ -37,10 +37,18 @@ function Slider() {
         );
 
         const data = await response.json();
+        console.log("data",data)
 
         //setGrowthState(data.eventHistory);
         data.eventHistory.forEach((event) => {
-          const dateObject = new Date(event.recordedAt);
+          console.log("event",event.recordedAt);
+          const dateObject = new Date(Date.UTC(
+            new Date(event.recordedAt).getUTCFullYear(),
+            new Date(event.recordedAt).getUTCMonth(),
+            new Date(event.recordedAt).getUTCDate()
+          ));
+          console.log("dateObject",dateObject)
+
           setGrowthState((prev) => [
             ...prev,
             { grouth: event.growthState.toString(), date: dateObject },

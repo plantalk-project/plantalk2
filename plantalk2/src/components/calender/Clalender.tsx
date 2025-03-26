@@ -8,6 +8,7 @@ import {
   format,
   getDate,
   getDay,
+  getMonth,
   startOfDay,
   startOfMonth,
 } from "date-fns";
@@ -53,10 +54,11 @@ function Clalender({
   const calender = getCalenderArray(selectMonth);
   //console.log("calender", calender);
 
-  const calenderModal = (date: number) => {
+  const calenderModal = (date: number, month: number) => {
+    console.log("month", month);
     isModalOpen(true);
     setDate(date);
-    setMonth(selectMonth.getMonth() + 1);
+    setMonth(month + 1);
   };
 
   // const isSameDate = (date1: Date, date2: Date, grouth: string) => {
@@ -99,6 +101,8 @@ function Clalender({
     return map;
   }, [growthState]);
 
+  const color = "#5BC8AC";
+
   return (
     <div className="calender-container">
       {/* <div className="calender-title-text">{format(date, "y年M月")}</div> */}
@@ -119,29 +123,32 @@ function Clalender({
             <tr key={rowNum}>
               {weekRow.map((date, index) => {
                 const key = format(date, "yyyy-MM-dd");
+                //console.log("date",date)
                 return (
                   <td
                     key={getDay(date)}
-                    onClick={() => calenderModal(getDate(date))}
+                    onClick={() => calenderModal(getDate(date), getMonth(date))}
                     className="calender-table-td"
                   >
                     <div className="calender-table-td-text">
                       {getDate(date)}
                       {/* 一致した日付に🌱を表示 */}
 
-                      {growthMap.get(key) == 1 ? (
-                        <ReactSVG src="/img/wither_calendar.svg" />
-                      ) : growthMap.get(key) == 2 ? (
-                        <ReactSVG src="/img/germinated_calendar.svg" />
-                      ) : growthMap.get(key) == 3 ? (
-                        <ReactSVG src="/img/bloomed_calendar.svg" />
-                      ) : growthMap.get(key) == 4 ? (
-                        <ReactSVG src="/img/harvest_calendar.svg" />
-                      ) : growthMap.get(key) == 5 ? (
-                        <ReactSVG src="/img/plant_calendar.svg" />
-                      ): (
-                        <> </>
-                      )}
+                      <div className="calender-icon">
+                        {growthMap.get(key) == 1 ? (
+                          <img src="/img/wither_calendar.svg" />
+                        ) : growthMap.get(key) == 2 ? (
+                          <img src="/img/germinated_calendar.svg" />
+                        ) : growthMap.get(key) == 3 ? (
+                          <img src="/img/bloomed_calendar.svg" />
+                        ) : growthMap.get(key) == 4 ? (
+                          <img src="/img/harvest_calendar.svg" />
+                        ) : growthMap.get(key) == 5 ? (
+                          <img src="/img/plant_calendar.svg" />
+                        ) : (
+                          <> </>
+                        )}
+                      </div>
                     </div>
                   </td>
                 );

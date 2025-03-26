@@ -1,10 +1,9 @@
 .calender-container {
   //overflow: visible;
   overflow: hidden;
-  border: 13px solid #5BC8AC;
+  border: 13px solid #5bc8ac;
   border-radius: 20px;
   margin-top: 30px;
-  
 }
 
 .calender-container table {
@@ -15,37 +14,38 @@
   overflow: hidden;
 }
 
-
-
-
 .calender-container table td,
 .calender-container table th {
-  margin:0;
+  margin: 0;
   padding: 0;
-  border: 2px solid #D2D2D2;
-  
+  border: 2px solid #d2d2d2;
 }
 
 .calender-container table th {
   width: 100px;
-  border-bottom: 3px solid #5BC8AC;
+  border-bottom: 3px solid #5bc8ac;
   background-color: white;
   padding-top: 30px;
 }
 
 .calender-container table td {
   position: relative;
-  
 }
 
 .calender-table-td-text {
-  position: absolute;
-  top: 5px;
-  left: 1px;
+  position: relative;
+  top:-10px;
   font-size: 3vw;
 }
 
 .calender-table-td {
-  height: 5vh;
+  height: 6vh;
   background-color: white;
+}
+
+.calender-icon {
+  position: absolute;
+  top: 4vw;
+  left: 2vw;
+  margin: auto;
 }
