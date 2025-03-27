@@ -1,0 +1,32 @@
+/* 全体のレイアウト */
+.chat-app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  
+  /* ユーザーメッセージ */
+  .user-chat-area {
+    align-self: flex-end;
+    background-color: rgb(255, 103, 103);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 5px;
+    max-width: 60%;
+  }
+  
+  /* AIメッセージ */
+  .ai-chat-area {
+    align-self: flex-start;
+    background-color: rgb(103, 255, 103);
+    color: black;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 5px;
+    max-width: 60%;
+  }
+  
