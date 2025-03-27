@@ -19,23 +19,22 @@ const LoginForm: React.FC = () => {
 
   return (
     <div className="login-container">
-      <h2 className='login-character'>ログイン</h2>
       <InputWithIcon 
-        label="あなたの名前を教えてね"
         type="username"
         atom={usernameAtom}
+        placeholder='ユーザー名'
       />
       <InputWithIcon
-        label="メールアドレスを打ってね"
         type="mail"
         atom={mailAtom}
+        placeholder='メールアドレス'
       />
       <InputWithIcon 
-        label="パスワードを打ってね"
         type="password"
         atom={passwordAtom}
+        placeholder='パスワード'
       />
-      <button className="ok-button" onClick={handleLogin}>OK</button>
+      <button className="ok-button" onClick={handleLogin}>ログイン</button>
     </div>
   );
 };

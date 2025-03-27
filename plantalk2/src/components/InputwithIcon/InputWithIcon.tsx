@@ -1,25 +1,35 @@
 import React from 'react';
 import { useAtom, PrimitiveAtom } from 'jotai';
+import './InputWithIcon.css';
 
 interface InputWithIconProps {
-  label: string;
-  type: 'username' | 'password' | 'mail'| 'plantname'| 'planttype';
+  type: 'username' | 'password' | 'email'| 'plantname'| 'planttype';
   atom: PrimitiveAtom<string>;
+  placeholder: string;
+  minlength?: number;
+  onKeyDown?: (e: React.KeyboardEvent) => void;
 }
 
-const InputWithIcon: React.FC<InputWithIconProps> = ({ label, type, atom }) => {
+const InputWithIcon: React.FC<InputWithIconProps> = ({ 
+  type, 
+  atom, 
+  placeholder,
+  onKeyDown 
+}) => {
   const [value, setValue] = useAtom(atom);
 
   return (
     <div className="input-group">
-      <label>{label}</label>
       <div className="input-with-icon">
-        <input 
+        <input
           type={type} 
           value={value}
+          placeholder={placeholder}
           onChange={(e) => setValue(e.target.value)}
+          onKeyDown={onKeyDown}
+          required
         />
-        <span className="pencil-icon">✎</span>
+        <img src="/pencilIcon.png" alt="pencil icon" className='pencil-icon'/>
       </div>
     </div>
   );
