@@ -1,11 +1,10 @@
 .new-registration-screen{
     width: 100%;
     height: 100vh;
-    max-height: 844px;
-    background-color: #8BB795;
+    background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
     padding: 2rem;
     box-sizing: border-box;
     text-align: center;
@@ -16,13 +15,32 @@
 }
 
 .new-registration-container{
-    border-radius: 30px;
     width: 100%;
     max-width: 350px;
-    margin: 1rem auto;
-    margin-bottom: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.password-emergency{
+.password-emergency {
+    color: #F8B4B4;
+    font-size: 0.9rem;
+    margin-top: -1.5rem;
+    padding-right: 40%;
+}
+
+.ok-button {
+    background-color: #F8B4B4;
     color: white;
+    text-decoration: none;
+    padding: 0.8rem;
+    border-radius: 25px;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.logo-image3{
+    width: 280px;
+    margin-bottom: 3rem;
 }

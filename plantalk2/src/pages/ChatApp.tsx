@@ -23,6 +23,7 @@ export default function ChatApp() {
       recordedAt: Date;
     }[]
   >([]);
+
   const [token, setToken] = useState(localStorage.getItem("token") || ""); //トークンの値を取得
 
   //ローカルストレージからトークンの値を取得
@@ -63,6 +64,8 @@ export default function ChatApp() {
   }, []);
 
   const form2 = useForm();
+
+  console.log("token", token);
 
   //メッセージを送信する関数
   const postLogin = async () => {

@@ -12,6 +12,7 @@ export const SlidePrevButton = () => {
       style={{
         background: "none",
         border: "none",
+        
       }}
     >
       <ReactSVG src="/img/transitionLocate.svg" />

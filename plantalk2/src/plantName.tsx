@@ -6,19 +6,20 @@ import './PlantName.css'
 const PlantName = () => {
   return (
     <div className="plantname-screen">
-      <h2 className="new-registration-character">新規登録画面</h2>
+      <img src="/plantalk2.png" alt="PlantTalk Logo" className="logo-image3" />
         <div className="plantname-container">
             <InputWithIcon 
-            label="植物につけたい名前をつけてね"
             type="plantname"
             atom={plantnameAtom}
+            placeholder="育てる植物の名前"
             />
-            <InputWithIcon
-            label="植物の植物の種類を教えてね"
+            <p className="name">好きな名前をつけて下さい</p>
+            <InputWithIcon 
             type="planttype"
             atom={planttypeAtom}
+            placeholder="育てる植物の種類"
             />                              
-            <Link to='/Home'>OK</Link>
+            <Link to='/home' className="ok-button">OK</Link>
         </div>
     </div>
   )

@@ -4,52 +4,11 @@
     max-width: 350px;
     margin: 1rem auto;
     text-align: center;
-}
-
-.login-character{
-    color: white;
-}
-
-.input-group {
-    margin-bottom: 1.5rem;
-}
-
-.input-group label {
-    display: block;
-    color: white;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.input-with-icon {
-    position: relative;
-    background: white;
-    border-radius: 8px;
-    padding: 0.5rem;
-}
-
-.input-with-icon input {
-    width: 100%;
-    border: none;
-    padding: 0.5rem;
-    font-size: 1rem;
-    background: transparent;
-}
-
-.input-with-icon input:focus {
-    outline: none;
-}
-
-.pencil-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--sage-green);
+    background-color: white;
 }
 
 .ok-button {
-    background: white;
+    background: #42695A;
     color: var(--sage-green);
     border: none;
     border-radius: 25px;
