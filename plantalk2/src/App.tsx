@@ -12,13 +12,13 @@ import Users from "./pages/Users";
 import Top from "./pages/Top";
 import Mypage from "./pages/Mypage";
 import ChatApp from "./pages/ChatApp";
+import Home from "./pages/Home";
 import Popota from "./components/Popota";
 import FlowerGreen from "./layout/Flower";
 import FlowerPink from "./layout/FlowerPink";
 import Flower from "./layout/Flower";
 import Clalender from "./components/calender/Clalender";
 import "@fontsource/m-plus-rounded-1c/400.css";
-
 
 const App: React.FC = () => {
   return (
@@ -34,6 +34,7 @@ const App: React.FC = () => {
           element={<Newregistrationscreen />}
         />
         <Route path="plantname" element={<PlantName />} />
+        <Route path="/home" element={<Home/>}/>
         <Route path="/dictionary" element={<Dictionary />} />
         <Route path="/user" element={<Users />} />
         <Route path="/top" element={<Top />} />
