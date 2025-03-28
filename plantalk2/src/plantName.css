@@ -19,6 +19,14 @@
     margin-bottom: 20%;
 }
 
+.planttype{
+    position: relative;
+    border: 5px solid #F8B4B4;
+    border-radius: 15px;
+    padding: 0.5rem 0rem;
+    background: white;
+}
+
 .name {
     color: #F8B4B4;
     font-size: 0.9rem;
