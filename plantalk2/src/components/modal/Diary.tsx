@@ -89,47 +89,87 @@ function Diary() {
   };
 
   return (
-    <div>
-      <div>
-        <span>{month}</span>月<span>{date}</span>日
+    <div className="home-area">
+      <br></br>
+      <div className="Diary_date">
+        <span>{month}</span>月<span>{date}</span><span>日</span><span>(月)</span>
       </div>
+
+      <h2 className="settings-title">
+  <span className="underline"></span>
+</h2>
+<div className="diary_text">日記</div>
       <form onSubmit={formName.handleSubmit(handleEvent)}>
-        <Input
-          label={"今日起きたことを自由に書いてみよう"}
-          fieldName={"diary"}
-          id={"1"}
-          register={formName.register}
-        />
-        <div>水やり</div>
-        <div>植物の健康状態</div>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <ReactSVG
-            src="/img/dissatisfied.svg"
-            onClick={() => handleClickEmoji(1)}
-          />
-          <ReactSVG src="/img/dizzy.svg" onClick={() => handleClickEmoji(2)} />
-          <ReactSVG
+        <textarea className = "diary" placeholder="今日起きたことを自由に書いてみよう">
+
+        </textarea>
+
+        <h2 className="settings-title">
+  <span className="underline"></span>
+</h2>
+        <div className="diary_text">植物の健康状態</div>
+        <div style={{ display: "flex", justifyContent: "center",　gap:"1em" }}>
+          <div className="health-stamp">
+            <ReactSVG
+              src="/img/dizzy.svg"
+              onClick={() => handleClickEmoji(1)}
+            />
+            <div>よくない</div>
+          </div>
+          <div className="health-stamp">
+            <ReactSVG src="/img/dissatisfied.svg" onClick={() => handleClickEmoji(2)} />
+          </div>
+          <div className="health-stamp">
+            <ReactSVG
             src="/img/satisfied.svg"
             onClick={() => handleClickEmoji(3)}
-          />
-          <ReactSVG src="/img/wink.svg" onClick={() => handleClickEmoji(4)} />
-          <ReactSVG src="/img/cool.svg" onClick={() => handleClickEmoji(5)} />
+            />
+            <div>ふつう</div>
+          </div>
+          <div className="health-stamp">
+            <ReactSVG src="/img/wink.svg" onClick={() => handleClickEmoji(4)} />
+          </div>
+          <div className="health-stamp">
+            <ReactSVG src="/img/cool.svg" onClick={() => handleClickEmoji(5)} />
+            <div>よい</div>
+          </div>
         </div>
-        <span>できごと</span>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <ReactSVG src="/img/wither.svg" onClick={() => handleClickSave(1)} />
-          <ReactSVG
-            src="/img/germinated.svg"
-            onClick={() => handleClickSave(2)}
-          />
-          <ReactSVG src="/img/bloomed.svg" onClick={() => handleClickSave(3)} />
-          <ReactSVG src="/img/harvest.svg" onClick={() => handleClickSave(4)} />
-          <ReactSVG src="/img/plant.svg" onClick={() => handleClickSave(5)} />
-        </div>
+        <h2 className="settings-title">
+  <span className="underline"></span>
+</h2>
+        <div  className="diary_text">できごと</div>
+          <div style={{ display: "flex", justifyContent: "center",　gap:"1em" }}>
+            <div className="event-stamp">
+              <ReactSVG src="/img/wither.svg" onClick={() => handleClickSave(1)} />
+              <div>枯れた</div>
+            </div> 
+            <div className="event-stamp">
+              <ReactSVG
+                src="/img/germinated.svg"
+                onClick={() => handleClickSave(2)}
+              />
+              <div>発芽した</div>
+              </div>
+            <div className="event-stamp">
+              <ReactSVG src="/img/bloomed.svg" onClick={() => handleClickSave(3)} />
+              <div>咲いた</div>
+            </div>
+            <div className="event-stamp">
+              <ReactSVG src="/img/harvest.svg" onClick={() => handleClickSave(4)} />
+              <div>収穫した</div>
+            </div>
+            <div className="event-stamp">
+              <ReactSVG src="/img/plant.svg" onClick={() => handleClickSave(5)} />
+              <div>植えた</div>
+            </div>
+          </div>
         
+        <p></p>
+        <form style={{ textAlign: "center" }}></form>
         {/* <button onClick={() => handleEvent()}>保存</button> */}
-        <button type="submit">保存</button>
+        <a href="" className="btn_03">保存</a>
       </form>
+      <p></p>
     </div>
   );
 }

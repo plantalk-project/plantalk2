@@ -1,0 +1,100 @@
+.home-area{
+    
+    overflow: auto;
+    
+}
+
+.home-area::-webkit-scrollbar{
+    display: none;
+}
+
+/*日付*/
+.Diary_date{
+    color:#5BC8AC;
+    font-size: 1.4em;
+    font-weight:bold;
+    line-height:150%;
+    text-align:center;
+}
+
+/*区切り線*/
+.settings-title {
+    position: relative;
+    padding-bottom: 1px;
+  }
+  
+  /*区切り線の内容*/
+  .underline {
+    content: "";
+    display: block;
+    width: 100%;
+    border-bottom: 0.2em dotted #5BC8AC; /* 点線に変更 */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .custom-label {
+    font-size: 1.2rem;
+    color: #ff6600;
+    padding-bottom: 5px;
+  }
+
+
+/*日記のフォーム*/
+.diary{
+    color: #42695A;
+    resize: none;
+    border: none;
+    width: 100%;
+    height: inherit;
+    align-items: center;
+}
+.diary:focus{
+    outline: none;
+}
+
+/*文字たち*/
+.diary_text{
+    color:#5BC8AC;
+    font-size: 1.2em;
+    font-weight:bold;
+    line-height:150%;
+    text-align:center;
+}
+
+.health-stamp{
+    font-size: 0.7em;
+    text-align: center;
+    font-weight: bold;
+    color:#42695A;
+}
+
+.event-stamp{
+    font-size: 0.7em;
+    text-align: center;
+    font-weight: bold;
+    color:#42695A;
+}
+
+/*button*/
+a.btn_03 {
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 40px;
+	margin: auto;
+	padding: 0.5rem 1.3rem;
+	font-weight: bold;
+	border: 3px solid #5BC8AC;
+	color: #5BC8AC;
+	border-radius: 100vh;
+	transition: 0.5s;
+}
+a.btn_03:hover {
+	color: #fff;
+	background: #5BC8AC;
+}
+

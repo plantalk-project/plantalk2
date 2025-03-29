@@ -10,6 +10,7 @@ function Modal() {
     <div className="modal-container">
       {modalOpen ? (
         <motion.div
+        /////////////////////高さ
           style={{ height: "60%" }}
           className="container"
           //初期状態は画面の外
