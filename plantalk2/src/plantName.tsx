@@ -3,14 +3,19 @@ import { useAtom } from 'jotai'
 import { plantnameAtom, planttypeAtom } from "./atoms/authAtoms"
 import InputWithIcon from "./components/InputwithIcon/InputWithIcon"
 import './PlantName.css'
-import Select from 'react-select'
+import Select, { StylesConfig, CSSObjectWithLabel } from 'react-select'
+
+type OptionType = {
+  value: string;
+  label: string;
+};
 
 const PlantName = () => {
   const [plantType, setPlantType] = useAtom(planttypeAtom);
 
-  const customStyles = {
-    control: (provided) => ({
-      ...provided,
+  const customStyles: StylesConfig<OptionType> = {
+    control: (base: CSSObjectWithLabel) => ({
+      ...base,
       border: "none",  // 枠線を消す
       boxShadow: "none", // フォーカス時の枠線を消す
     }),
@@ -41,10 +46,10 @@ const PlantName = () => {
               placeholder="育てる植物の名前"
             />
             <p className="name">好きな名前をつけて下さい</p>
-            <Select
+            <Select<OptionType>
               options={plantselect}
               placeholder="育てる植物の種類"
-              value={plantselect.find(option => option.value === plantType)}
+              value={plantselect.find(option => option.value === plantType) || null}
               onChange={(newValue) => setPlantType(newValue?.value || '')}
               className="planttype"
               styles={customStyles}
