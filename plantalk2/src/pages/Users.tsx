@@ -14,14 +14,25 @@ function Users() {
       return;
     }
     try {
-      const response = await fetch("http://localhost:3003/post/private", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "x-auth-token": token,
-        },
-      });
-      const data = await response.json();
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/post/private`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": token,
+          },
+        }
+      );
+      const responseText = await response.text(); 
+      console.log("Raw response:", responseText); 
+
+      if (!response.ok) {
+        console.error("HTTPエラー:", response.status, responseText);
+        return;
+      }
+
+      const data = JSON.parse(responseText); 
       console.log("data", data);
 
       if (response.ok) {
@@ -36,14 +47,17 @@ function Users() {
 
   const postLogin = async (data) => {
     try {
-      const response = await fetch("http://localhost:3003/auth/login", {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/auth/login`,
+        {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
       const result = await response.json();
 
       if (response.ok) {

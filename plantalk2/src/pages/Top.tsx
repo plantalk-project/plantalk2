@@ -18,7 +18,7 @@ function Top() {
       return;
     }
     try {
-      const response = await fetch("http://localhost:3003/post/private", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/private`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -38,9 +38,10 @@ function Top() {
     }
   };
 
+  console.log("import.meta.env.VITE_API_URL",import.meta.env.VITE_API_URL)
   const handleClick = async (data: string) => {
     try {
-      const response = await fetch("http://localhost:3003/auth/register", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/register`, {
         method: "POST",
         mode: "cors",
         headers: {
