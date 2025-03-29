@@ -1,28 +1,52 @@
+import { ReactSVG } from 'react-svg'
 import './dictionary.css'
+import { SlidePrevButton } from './components/calender/SlideprevButton'
+import { SlideNextButton } from './components/calender/SlideNextButton'
 
 function Dictionary() {
     return (
-        <div className="dictionary-screen">
-            <h1>植物図鑑</h1>
+        <div className="dictionary-page">
+        <div className="dictionary-box">
+            <div className="dictionary-content">
+            <div className="title-text">植物図鑑</div>
+            <div className="dictionary-text">No.1</div>
+                <div className="dictionary-name">スミレちゃん</div>
             <div className="dictionary-container">
+            
                 <div className="dictionary-picture">
                     <img src="../images/sumire.jpg" alt="スミレ" />
                 </div>
-                <h3>No.1</h3>
-                <h2>スミレちゃん</h2>
-                <p>
+            
+
+                <div className="dictionary-text">
                     植物名: <br></br>
                     種類: <br></br>
                     花言葉: <br></br>
                     開花にかかった期間: <br></br>
                     性格: <br></br>
-                    まめちしき: <br></br>
-                </p>
-                <div className='dictionary-button'>
-                    <button className='button-back'>b</button>
-                    <button className='button-next'>n</button>
+                </div>      
+            </div>
+            <div className="trivia">
+                    <div>
+                    <p className="bubble">
+                        【ポポタのまめちしき】<br/>
+                        花の根元の形が墨つぼに似ていたことからスミイレを略してスミレと呼ばれるようになったポ！
+                    </p>
+                    </div>
+                <ReactSVG  src="/img/popota.svg"/>
+            </div>
+
+            <div className="slider-button">
+                <div className="slider-prev-button">
+                    <SlidePrevButton />
+                </div>
+
+                <div className="slider-next-button">
+                     <SlideNextButton />
                 </div>
             </div>
+            </div>
+        </div>
         </div>
     )
 }
