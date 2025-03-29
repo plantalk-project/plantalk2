@@ -13,6 +13,7 @@ import { growthStateAtom } from "../atoms/growthStateAtom";
 import Popota from "../components/Popota";
 import Title from "../Title";
 import PlanTalk from "../components/Plantalk";
+
 function Slider() {
   const [slideIndex, setSlideIndex] = useState(0);
   const initialMonth = new Date();
@@ -24,7 +25,7 @@ function Slider() {
     const fetchChatHistory = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3003/calendar/getCalendar",
+            `${import.meta.env.VITE_API_URL}/calendar/getCalendar`,
           {
             //チャットのAPIを呼び出す
             method: "GET",

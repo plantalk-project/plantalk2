@@ -7,18 +7,23 @@ import { ReactSVG } from "react-svg";
 import { growthStateAtom } from "../../atoms/growthStateAtom";
 import Input from "../../layout/Input";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { nextAtom } from "../../atoms/nextAtoms";
 
 function Diary() {
   const [date, setDate] = useAtom(getDateAtom);
   const [month, setMonth] = useAtom(getMonthAtom);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [growthState, setGrowthState] = useAtom(growthStateAtom);
+  const [useNext,setUseNext] = useAtom(nextAtom);
   const formName = useForm();
   const event = {
     emoji: 0,
     growth: 0,
     diary:""
   };
+
+  const navigate = useNavigate();
 
   const clickGetEvent = async (
     event: {
@@ -66,6 +71,13 @@ function Diary() {
           { grouth: event.growth.toString(), date: SaveData },
         ]);
       }
+
+      if(event.growth == 5){
+        setUseNext(true)
+        navigate("/dictionary");
+      }
+
+
     } catch (error) {
       console.log("error", error);
     }
@@ -84,7 +96,7 @@ function Diary() {
   const handleEvent = (data:{diary:string}) => {
     //setGrowthState((prev) => [...prev, {grouth:event.growthState, date:event.recorrdedAt}]);
     event.diary = data.diary
-    clickGetEvent(event, "http://localhost:3003/calendar");
+    clickGetEvent(event, `${import.meta.env.VITE_API_URL}/calendar`);
     console.log("formName.register",typeof data.diary)
   };
 
