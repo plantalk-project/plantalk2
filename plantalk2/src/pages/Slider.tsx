@@ -93,6 +93,8 @@ function Slider() {
     if (savedToken) {
       setToken(savedToken);
     }
+
+    
   }, []);
 
   return (

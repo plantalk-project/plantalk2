@@ -40,6 +40,39 @@ export default function ChatApp() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chatHistoryModel, chatHistoryUser, currentData]);
 
+  useEffect(() => {
+    const fetchChatResponse = async () => {
+      try {
+        const chatResponse = await fetch(
+          `${import.meta.env.VITE_API_URL}/chat/start`,
+          {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              "Content-Type": "application/json",
+              "x-auth-token": token,
+            },
+            body: JSON.stringify(sendData),
+          }
+        );
+
+        const result = await chatResponse.json(); 
+        console.log("result", result);
+
+        if (result.text) {
+          setCurrentData((prev) => [
+            ...prev,
+            { sender: "model", message: result.text },
+          ]);
+        }
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+
+    fetchChatResponse();
+  }, []);
+
   const [sendData, setSendData] = useState<string[]>([]);
 
   //メッセージを送信する関数
@@ -83,7 +116,6 @@ export default function ChatApp() {
           { sender: "model", message: result.text },
         ]);
       }
-      
     } catch (error) {
       console.log("error", error);
     }
@@ -157,7 +189,7 @@ export default function ChatApp() {
   return (
     <div className="chat-app">
       {/* メッセージの履歴 */}
-      
+
       <div className="messages-list">
         {sortedMessages.map((msg, index) => (
           <div
@@ -200,7 +232,9 @@ export default function ChatApp() {
             />
           ))}
           <div>
-            <button type="submit" className="sendbutton">送信</button>
+            <button type="submit" className="sendbutton">
+              送信
+            </button>
           </div>
         </form>
       </div>
