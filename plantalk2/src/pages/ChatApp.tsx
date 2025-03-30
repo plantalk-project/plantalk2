@@ -97,7 +97,7 @@ export default function ChatApp() {
     const fetchChatHistory = async () => {
       try {
         const response = await fetch(
-          "https://ccc2-202-15-17-87.ngrok-free.app/chat/getChatHistory",
+          `${import.meta.env.VITE_API_URL}/chat/getChatHistory`,
           {
             //チャットのAPIを呼び出す
             method: "GET",
