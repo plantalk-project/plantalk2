@@ -32,8 +32,12 @@ const Newregistrationscreen = () => {
   }, [username, email, password]);
 
   const handleRegister = (e: React.FormEvent) => {
-    e.preventDefault(); // フォームのデフォルト送信を防止
+    e.preventDefault();
     if (isValid) {
+      // 登録情報を保存
+      localStorage.setItem('registeredUsername', username);
+      localStorage.setItem('registeredEmail', email);
+      localStorage.setItem('registeredPassword', password);
       console.log('登録処理:', { username, email, password });
     }
   };
