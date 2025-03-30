@@ -1,4 +1,3 @@
-import React from "react";
 import FlowerGreen from "../layout/Flower";
 import FlowerPink from "../layout/FlowerPink";
 

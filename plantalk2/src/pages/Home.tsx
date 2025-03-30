@@ -1,5 +1,5 @@
 import "./Home.css"
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAtom } from 'jotai'
 import { usernameAtom } from "../atoms/authAtoms"
 import Footer from "../components/footer/Footer"

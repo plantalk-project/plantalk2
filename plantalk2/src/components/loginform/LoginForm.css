@@ -7,15 +7,31 @@
     background-color: white;
 }
 
-.ok-button {
-    background: #42695A;
-    color: var(--sage-green);
-    border: none;
+.ok-button2 {
+    background-color: #F8B4B4;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem;
     border-radius: 25px;
-    padding: 0.8rem 3rem;
-    font-size: 1.2rem;
-    cursor: pointer;
+    text-align: center;
     display: block;
-    margin: 2rem auto 0;
+    margin: 1rem auto 2rem;
+    margin-bottom: 0.5rem;
+    width: fit-content;
     min-width: 120px;
+    font-size: 1.1rem;
+}
+
+.back-button {
+    background-color: #F8B4B4;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem;
+    border-radius: 25px;
+    text-align: center;
+    display: block;
+    margin: 1rem auto 2rem;
+    width: fit-content;
+    min-width: 120px;
+    font-size: 1.1rem;
 }

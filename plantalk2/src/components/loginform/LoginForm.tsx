@@ -59,7 +59,7 @@ const LoginForm: React.FC = () => {
       />
       <Link 
         to={isValid ? '/home' : '#'} 
-        className="ok-button" 
+        className="ok-button2" 
         onClick={handleLogin}
         style={{ 
           opacity: isValid ? 1 : 0.5,
@@ -68,6 +68,7 @@ const LoginForm: React.FC = () => {
       >
         ログイン
       </Link>
+      <Link to='/select' className='back-button'>戻る</Link>
     </div>
   );
 };
