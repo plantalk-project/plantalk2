@@ -10,12 +10,17 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { nextAtom } from "../../atoms/nextAtoms";
 
-function Diary() {
-  const [date, setDate] = useAtom(getDateAtom);
-  const [month, setMonth] = useAtom(getMonthAtom);
-  const [token, setToken] = useState(localStorage.getItem("token") || "");
-  const [growthState, setGrowthState] = useAtom(growthStateAtom);
-  const [useNext,setUseNext] = useAtom(nextAtom);
+interface DiaryProps {
+  modalOpen: boolean;
+  setModalOpen: (open: boolean) => void;
+}
+
+function Diary({ setModalOpen }: DiaryProps) {
+  const [date] = useAtom(getDateAtom);
+  const [month] = useAtom(getMonthAtom);
+  const [token] = useState(localStorage.getItem("token") || "");
+  const [setGrowthState] = useAtom(growthStateAtom);
+  const [setUseNext] = useAtom(nextAtom);
   const formName = useForm();
   const event = {
     emoji: 0,
@@ -94,8 +99,18 @@ function Diary() {
   };
 
   const handleEvent = (data:{diary:string}) => {
-    //setGrowthState((prev) => [...prev, {grouth:event.growthState, date:event.recorrdedAt}]);
-    event.diary = data.diary
+    event.diary = data.diary;
+    
+    // 枯れた(1)または収穫した(4)が選択された場合、辞書ページに遷移
+    if (event.growth === 1 || event.growth === 4) {
+      setUseNext(true);
+      navigate("/dictionary");
+      return;
+    }else{
+      setModalOpen(false);
+      return;
+    }
+    
     clickGetEvent(event, `${import.meta.env.VITE_API_URL}/calendar`);
     console.log("formName.register",typeof data.diary)
   };
@@ -120,7 +135,7 @@ function Diary() {
   <span className="underline"></span>
 </h2>
         <div className="diary_text">植物の健康状態</div>
-        <div style={{ display: "flex", justifyContent: "center",　gap:"1em" }}>
+        <div style={{ display: "flex", justifyContent: "center", gap:"1em" }}>
           <div className="health-stamp">
             <ReactSVG
               src="/img/dizzy.svg"
@@ -150,7 +165,7 @@ function Diary() {
   <span className="underline"></span>
 </h2>
         <div  className="diary_text">できごと</div>
-          <div style={{ display: "flex", justifyContent: "center",　gap:"1em" }}>
+          <div style={{ display: "flex", justifyContent: "center", gap:"1em" }}>
             <div className="event-stamp">
               <ReactSVG src="/img/wither.svg" onClick={() => handleClickSave(1)} />
               <div>枯れた</div>
@@ -178,8 +193,8 @@ function Diary() {
         
         <p></p>
         <form style={{ textAlign: "center" }}></form>
-        {/* <button onClick={() => handleEvent()}>保存</button> */}
-        <a href="" className="btn_03">保存</a>
+        <button onClick={() => handleEvent({ diary: "" })} className="btn_03">保存</button>
+        {/* <a href="" className="btn_03" onClick={() => handleEvent()}>保存</a> */}
       </form>
       <p></p>
     </div>
