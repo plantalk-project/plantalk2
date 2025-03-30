@@ -51,6 +51,10 @@ const Number = () => {
 const Home = () => {
   const location = useLocation();
   console.log("location", location.state);
+  const nickname = location.state.user.plants.map(
+    (plant: { id: string; species: string; speciesName: string }) => (
+        <div>{plant.species}</div>
+    ));
 
   const [username] = useAtom(usernameAtom)
 
@@ -60,7 +64,7 @@ const Home = () => {
       <div className="main-contents">
         <div className="plant-name">
           
-          <div className="plant-name-text">ブルーベリー</div>
+          <div className="plant-name-text">{nickname}</div>
           <ReactSVG src="/img/pen.svg" />
         </div>
         {/* <Number/> */}
