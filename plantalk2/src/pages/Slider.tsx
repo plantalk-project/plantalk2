@@ -11,7 +11,6 @@ import { modalWindowAtom } from "../atoms/isModal";
 import "./Slider.css";
 import { growthStateAtom } from "../atoms/growthStateAtom";
 import Popota from "../components/Popota";
-import Title from "./Title";
 import PlanTalk from "../components/Plantalk";
 
 function Slider() {
