@@ -121,7 +121,7 @@ function Diary({ setModalOpen }: DiaryProps) {
       <div className="Diary_date">
         <span>{month}</span>月<span>{date}</span>
         <span>日</span>
-        <span>(月)</span>
+        <span>({new Date(new Date().getFullYear(), month - 1, date).toLocaleDateString('ja-JP', { weekday: 'short' })})</span>
       </div>
 
       <h2 className="settings-title">
