@@ -79,12 +79,12 @@
 }
 
 /*button*/
-button.btn_03 {
+a.btn_03 {
 	display: block;
 	text-align: center;
 	vertical-align: middle;
 	text-decoration: none;
-	/* width: 40px; */
+	width: 40px;
 	margin: auto;
 	padding: 0.5rem 1.3rem;
 	font-weight: bold;
@@ -93,7 +93,7 @@ button.btn_03 {
 	border-radius: 100vh;
 	transition: 0.5s;
 }
-button.btn_03:hover {
+a.btn_03:hover {
 	color: #fff;
 	background: #5BC8AC;
 }

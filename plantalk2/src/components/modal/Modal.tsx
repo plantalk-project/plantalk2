@@ -6,10 +6,6 @@ import Diary from "./Diary";
 
 function Modal() {
   const [modalOpen, isModalOpen] = useAtom(modalWindowAtom);
-  const setModalOpen = (value: boolean) => {
-    isModalOpen(value);
-  };
-
   return (
     <div className="modal-container">
       {modalOpen ? (
@@ -41,7 +37,7 @@ function Modal() {
             if (info.offset.y > 100) isModalOpen(false);
           }}
         >
-          <Diary modalOpen={modalOpen} setModalOpen={setModalOpen} />
+          <Diary />
         </motion.div>
       ) : (
         <></>
