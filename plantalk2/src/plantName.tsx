@@ -23,7 +23,7 @@ const PlantName = () => {
   
 
   const plantselect = [
-    { value: 'blueberry', label: 'ブルーベーリー' },
+    { value: 'blueberry', label: 'ブルーベリー' },
     { value: 'radish', label: 'ラディッシュ' },
     { value: 'banyan tree', label: 'ガジュマル' },
     { value: 'pachira', label: 'パキラ' },

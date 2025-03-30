@@ -4,7 +4,7 @@ import './ChatButton.css'
 
 const ChatButton = () => {
   return (
-    <img src="/home-icon.png" alt="Home" className="button-icon" />
+    <img src="/img/chat-icon.svg" alt="Home" className="button-icon" />
   )
 }
 

@@ -1,18 +1,15 @@
 import React from "react";
 import { ReactSVG } from "react-svg";
 import "./Popota.css";
+import Icon from "../../public/img/popota.svg";
 
 function Popota() {
   return (
-    <div>
-      <div className="popota-container">
-        <div className="speech-bubble-img">
-          <p>こんにちは。これは例です。</p>
-        </div>
-        <div className="popota-img">
-          <img src="/img/popota.svg" alt="popota"  style={{width:"25vh"}}/>
-        </div>
+    <div className="popota-container">
+      <div className="bubble">
+        <p>こんにちは。これは例です。</p>
       </div>
+      <img src={Icon} alt="popota" />
     </div>
   );
 }
