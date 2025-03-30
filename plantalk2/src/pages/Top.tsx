@@ -18,7 +18,7 @@ function Top() {
       return;
     }
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/private`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/post/private`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
