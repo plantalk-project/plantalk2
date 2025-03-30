@@ -1,0 +1,77 @@
+.plantname-screen{
+    width: 100%;
+    height: 100vh;
+    max-height: 844px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.plantname-container{
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 20%;
+}
+
+.planttype{
+    position: relative;
+    border: 5px solid #F8B4B4;
+    border-radius: 15px;
+    padding: 0.5rem 0rem;
+    background: white;
+}
+
+.ok-button-container{
+    margin-top: 15%;
+}
+
+.ok-button {
+    background-color: #F18D9E;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem;
+    border-radius: 25px;
+    text-align: center;
+    display: block;
+    margin: 0 auto 2rem;
+    width: fit-content;
+    min-width: 120px;
+    font-size: 1.1rem;
+}
+
+.back-button3{
+    background-color: #F8B4B4;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem;
+    border-radius: 25px;
+    text-align: center;
+    display: block;
+    margin: 15% auto 2rem;
+    width: fit-content;
+    min-width: 120px;
+    font-size: 1.1rem;
+}
+
+.name {
+    color: #F8B4B4;
+    font-size: 0.9rem;
+    margin-top: -1.5rem;
+    padding-right: 40%;
+}
+
+.logo-image3{
+    width: 300px;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+    margin-top: 20%;
+}
