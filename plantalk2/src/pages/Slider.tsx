@@ -62,6 +62,33 @@ function Slider() {
     };
     fetchChatHistory();
 
+    const getWaterDay = async () => {
+      try {
+        const response = await fetch(
+            `${import.meta.env.VITE_API_URL}/water/getwaterlog`,
+          {
+            //チャットのAPIを呼び出す
+            method: "GET",
+            mode: "cors",
+            headers: {
+              "Content-Type": "application/json",
+              "x-auth-token": token,
+            },
+          }
+        );
+
+        const data = await response.json();
+        console.log("data",data)
+
+        
+        console.log("取得したチャット履歴:", data);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    getWaterDay();
+    
+
     const savedToken = localStorage.getItem("token");
     if (savedToken) {
       setToken(savedToken);
