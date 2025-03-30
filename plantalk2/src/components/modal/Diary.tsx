@@ -13,25 +13,28 @@ interface DiaryProps {
 }
 
 function Diary({ setModalOpen }: DiaryProps) {
-  const [date] = useAtom(getDateAtom);
-  const [month] = useAtom(getMonthAtom);
-  const [token] = useState(localStorage.getItem("token") || "");
-  const [, setGrowthState] = useAtom(growthStateAtom);
   const [useNext, setUseNext] = useState(false);
   const formName = useForm();
+  const [diaryText, setDiaryText] = useState("");
+    
   const event = {
     emoji: 0,
     growth: 0,
-    diary:""
+    diary: "",
   };
 
   const navigate = useNavigate();
+  const formName = useForm();
+
+  const handleDiaryChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setDiaryText(event.target.value);
+  };
 
   const clickGetEvent = async (
     event: {
       emoji: number;
       growth: number;
-      diary:string;
+      diary: string;
     },
     link: string
   ) => {
@@ -46,7 +49,7 @@ function Diary({ setModalOpen }: DiaryProps) {
       return;
     }
 
-    console.log("event",event)
+    console.log("event", event);
 
     try {
       const response = await fetch(link, {
@@ -74,12 +77,10 @@ function Diary({ setModalOpen }: DiaryProps) {
         ]);
       }
 
-      if(event.growth == 5){
-        setUseNext(true)
+      if (event.growth == 5) {
+        setUseNext(true);
         navigate("/dictionary");
       }
-
-
     } catch (error) {
       console.log("error", error);
     }
@@ -95,9 +96,9 @@ function Diary({ setModalOpen }: DiaryProps) {
     console.log("event", event.growth);
   };
 
-  const handleEvent = (data:{diary:string}) => {
+  const handleEvent = (data:{ diary : string }) => {
     event.diary = data.diary;
-    
+    // event.diary = diaryText;
     // 収穫した(4)が選択された場合、辞書ページに遷移
     if (event.growth === 4) {
       setUseNext(true);
@@ -110,30 +111,36 @@ function Diary({ setModalOpen }: DiaryProps) {
       setModalOpen(false);
       return;
     }
-    
+   
     clickGetEvent(event, `${import.meta.env.VITE_API_URL}/calendar`);
-    console.log("formName.register",typeof data.diary)
+    console.log("formName.register", typeof data.diary);
   };
+  
 
   return (
     <div className="home-area">
       <br></br>
       <div className="Diary_date">
-        <span>{month}</span>月<span>{date}</span><span>日</span><span>(月)</span>
+        <span>{month}</span>月<span>{date}</span>
+        <span>日</span>
+        <span>(月)</span>
       </div>
 
       <h2 className="settings-title">
-  <span className="underline"></span>
-</h2>
-<div className="diary_text">日記</div>
+        <span className="underline"></span>
+      </h2>
+      <div className="diary_text">日記</div>
       <form onSubmit={formName.handleSubmit(handleEvent)}>
-        <textarea className = "diary" placeholder="今日起きたことを自由に書いてみよう">
-
-        </textarea>
+        <textarea
+          className="diary"
+          placeholder="今日起きたことを自由に書いてみよう"
+          value={diaryText}
+          onChange={handleDiaryChange}
+        ></textarea>
 
         <h2 className="settings-title">
-  <span className="underline"></span>
-</h2>
+          <span className="underline"></span>
+        </h2>
         <div className="diary_text">植物の健康状態</div>
         <div style={{ display: "flex", justifyContent: "center", gap:"1em" }}>
           <div className="health-stamp">
@@ -144,12 +151,15 @@ function Diary({ setModalOpen }: DiaryProps) {
             <div>よくない</div>
           </div>
           <div className="health-stamp">
-            <ReactSVG src="/img/dissatisfied.svg" onClick={() => handleClickEmoji(2)} />
+            <ReactSVG
+              src="/img/dissatisfied.svg"
+              onClick={() => handleClickEmoji(2)}
+            />
           </div>
           <div className="health-stamp">
             <ReactSVG
-            src="/img/satisfied.svg"
-            onClick={() => handleClickEmoji(3)}
+              src="/img/satisfied.svg"
+              onClick={() => handleClickEmoji(3)}
             />
             <div>ふつう</div>
           </div>
@@ -162,8 +172,9 @@ function Diary({ setModalOpen }: DiaryProps) {
           </div>
         </div>
         <h2 className="settings-title">
-  <span className="underline"></span>
-</h2>
+
+         <span className="underline"></span>
+        </h2>
         <div  className="diary_text">できごと</div>
           <div style={{ display: "flex", justifyContent: "center", gap:"1em" }}>
             <div className="event-stamp">
@@ -176,7 +187,7 @@ function Diary({ setModalOpen }: DiaryProps) {
                 onClick={() => handleClickSave(2)}
               />
               <div>発芽した</div>
-              </div>
+            </div>
             <div className="event-stamp">
               <ReactSVG src="/img/bloomed.svg" onClick={() => handleClickSave(3)} />
               <div>咲いた</div>
@@ -190,8 +201,6 @@ function Diary({ setModalOpen }: DiaryProps) {
               <div>植えた</div>
             </div>
           </div>
-        
-        <p></p>
         <form style={{ textAlign: "center" }}></form>
         <button onClick={() => handleEvent({ diary: "" }) } className="btn_03">保存</button>
         {/* <a href="" className="btn_03" onClick={() => handleEvent()}>保存</a> */}
