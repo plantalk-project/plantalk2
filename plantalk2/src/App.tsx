@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Title from "./Title";
-import Select from "./Select";
+import Title from "./pages/Title";
+import Select from "./pages/Select";
 import Login from "./Login";
 import Slider from "./pages/Slider";
 import Modal from "./components/modal/Modal";
-import Newregistrationscreen from "./Newregistrationscreen";
-import PlantName from "./plantName";
+import Newregistrationscreen from "./pages/Newregistrationscreen";
+import PlantName from "./pages/plantName";
 import Dictionary from "./dictionary";
 import Users from "./pages/Users";
 import Top from "./pages/Top";
