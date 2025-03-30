@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { getDateAtom, getMonthAtom } from "../../atoms/dateAtoms";
 import { useAtom } from "jotai";
 import "./Diary.css";
-import { Icon } from "@iconify/react";
 import { ReactSVG } from "react-svg";
 import { growthStateAtom } from "../../atoms/growthStateAtom";
-import Input from "../../layout/Input";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 

@@ -3,7 +3,7 @@ import './dictionary.css'
 import { SlidePrevButton } from './components/calender/SlideprevButton'
 import { SlideNextButton } from './components/calender/SlideNextButton'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 function Dictionary() {
     const location = useLocation();
