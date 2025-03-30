@@ -1,10 +1,10 @@
 import React from 'react'
 import './DictionaryButton.css'
-import { Link } from 'react-router-dom'
+
 
 const DictionaryButton = () => {
   return (
-    <Link to='/dictionary'>Dictionary</Link>
+    <img src="/home-icon.png" alt="Home" className="button-icon" />
   )
 }
 

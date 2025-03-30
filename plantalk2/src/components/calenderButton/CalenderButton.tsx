@@ -1,10 +1,10 @@
 import React from 'react'
-import './calenderButton.css'
-import { Link } from 'react-router-dom'
+import './CalenderButton.css'
+
 
 const CalenderButton = () => {
   return (
-    <Link to='/slider'>calender</Link>
+    <img src="/home-icon.png" alt="Home" className="button-icon" />
   )
 }
 
