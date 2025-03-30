@@ -49,7 +49,7 @@ const Home = () => {
   return (
     <div className="home-page">
       <PlanTalk />
-      <div className="adjust-hight">
+      <div className="main-contents">
         <div className="plant-name">
           <div className="plant-name-text">ブルーベリー</div>
           <ReactSVG src="/img/pen.svg" />
@@ -81,10 +81,12 @@ const Home = () => {
             <div className="box-percent-text">26°C</div>
             <div className="box-status-text">温度</div>
         </div>
-        </div>
+      </div>
+      
+      <div className="bottom">
         <Popota />
         <Footer/>
-      
+      </div>
     </div>
   )
 }

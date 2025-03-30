@@ -1,37 +1,38 @@
 .popota-container {
   display: flex;
-  align-items: center;
-  /* width: 100w; */
-  /* /height: 100%; */
+  padding: 1rem;
   justify-content: center;
-}
+  margin-bottom: 0.5rem;
+  transform: translateX(20px);
 
-.speech-bubble-img {
-  position: relative;
-  display: inline-block;
-  margin: 1.5em 15px 1.5em 1em;
-  padding: 5px 5px;
-  min-width: 120px;
-  max-width: 100%;
-  color: white;
-  font-size: 16px;
-  background: #F18D9E;
-  width:20vw
-  border: 10px;
-  border-radius: 10px;
-}
 
-.speech-bubble-img:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  margin-top: -15px;
-  border: 15px solid transparent;
-  border-left: 15px solid #F18D9E;
-}
+  & .bubble {
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 15px 1.5em 0em;
+    padding: 5px 10px;
+    color: white;
+    font-size: 16px;
+    background-color: #f18d9e;
+    width: fit-content;
+    max-width: 300px;
+    border: 10px;
+    border-radius: 10px;
+    text-align: left;
+  }
 
-.popota-img {
-  margin-left: -10px;
+  & .bubble:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -15px;
+    border: 15px solid transparent;
+    border-left: 15px solid #f18d9e;
+  }
 
+  > img {
+    height: clamp(30px, 21vh, 200px);
+    width: auto;
+  }
 }

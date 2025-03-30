@@ -1,36 +1,37 @@
 .home-page{
-    margin: auto;
-}
-
-
-.adjust-hight{
-}
-.plant-name{
-    display: flex;
-    padding-top: 5%;
+    height: 100%;
+    width: 100%;
     align-items: center;
     justify-content: center;
 }
 
+.main-contents{
+    margin-top: 0.5rem;
+}
+
+.plant-name{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+
 
 .plant-name-text{
-    
-    font-size: larger;
+    display: flex;
+    font-size: x-large;
     font-weight: bold;
     color: #5BC8AC;
-    align-items: center;
     text-decoration: underline;
     text-decoration-color: #5BC8AC;
 }
 
-.condition-svg{
-    color: #fff;
-}
 
 .condition-box{
     display: flex;
     margin:auto;
-    padding: 0.5em;
+    padding: 1%;
     color: hsl(0, 0%, 100%);
     background: #5BC8AC;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
@@ -38,8 +39,8 @@
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-    width: 70%;
-    height: 25%;
+    width: 80%;
+    height: clamp(20px, 10vh, 150px);
     flex-flow: column;
 }
 
@@ -52,15 +53,15 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     place-items:center ;
-    margin:0 auto;
-    margin-top: 4%;
-    padding: 0em 0.1em;
+    margin:auto;
+    margin-top: 3%;
+    padding: 0.5%;
     color: hsl(0, 0%, 100%);
     background: #5BC8AC;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    width: 75%;
-    height: 10%;
+    width: 85%;
+    height: clamp(20px, 8vh, 150px);
     /* display: flex;
     justify-content: center;
     align-items: center;
@@ -76,13 +77,13 @@
     font-weight: bold;
     justify-self: end;
     align-self: end;
-    padding-right: 10px;
+    padding-right: 3%;
 }
 
 .box-percent-text{
     font-weight: bold;
-    font-size: 30px;
-    padding-left: 10px;
+    font-size: 180%;
+    padding-left: 5%;
 
     /* right: -1rem;
     justify-content: flex-end;
@@ -90,13 +91,19 @@
 }
 
 .box-svg{
-    padding-top: 0.3rem;
-    padding-left: 1rem;
+    padding-top: 3%;
+    padding-left: 5%;
     display: table-cell; 
     text-align: left;
 
     & svg {
-        height: 2.5rem;
+        height: 3rem;
         width: auto;
     }
+}
+
+.bottom{
+    position: fixed;
+    bottom: 5%;
+    width: 100%;
 }

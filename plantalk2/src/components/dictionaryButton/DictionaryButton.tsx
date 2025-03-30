@@ -4,7 +4,7 @@ import './DictionaryButton.css'
 
 const DictionaryButton = () => {
   return (
-    <img src="/home-icon.png" alt="Home" className="button-icon" />
+    <img src="/img/dictionary-icon.svg" alt="Home" className="button-icon" />
   )
 }
 

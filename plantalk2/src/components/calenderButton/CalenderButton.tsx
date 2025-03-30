@@ -4,7 +4,7 @@ import './CalenderButton.css'
 
 const CalenderButton = () => {
   return (
-    <img src="/home-icon.png" alt="Home" className="button-icon" />
+    <img src="/img/clender-icon.svg" alt="Home" className="button-icon" />
   )
 }
 
