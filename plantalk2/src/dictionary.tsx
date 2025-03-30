@@ -2,10 +2,30 @@ import { ReactSVG } from 'react-svg'
 import './dictionary.css'
 import { SlidePrevButton } from './components/calender/SlideprevButton'
 import { SlideNextButton } from './components/calender/SlideNextButton'
+import { useLocation, useNavigate } from 'react-router-dom'
+ import { useState } from 'react'
 
 function Dictionary() {
+    const location = useLocation();
+     const navigate = useNavigate();
+     const [useNext, setUseNext] = useState(location.state?.useNext || false);
+ 
+     const handleClosePopup = () => {
+         setUseNext(false);
+         navigate('/chat');
+     };
     return (
         <div className="dictionary-page">
+            <div className={`overlay ${useNext ? 'show' : ''}`}>
+             <div className={`popup ${useNext ? 'show' : ''}`}>
+                <div className="popup-content">
+                     <p>図鑑に登録されました</p>
+                     <button className="popup-button" onClick={handleClosePopup}>
+                         次へ
+                     </button>
+                </div>
+             </div>
+            </div>
         <div className="dictionary-box">
             <div className="dictionary-content">
             <div className="title-text">植物図鑑</div>
