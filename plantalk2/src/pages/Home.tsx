@@ -6,11 +6,15 @@ import Footer from "../components/footer/Footer"
 import Popota from "../components/Popota"
 import { ReactSVG } from "react-svg"
 import PlanTalk from "../components/Plantalk"
+import { useLocation } from "react-router-dom"
+
+
 
 const Number = () => {
   const [number, setNumber] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const WebSocketUrl = window.location.href.replace("http", "ws").slice(0,-1) + ":81";
+  const location = useLocation();
   useEffect(() => {
     const socket = new WebSocket(WebSocketUrl);
     console.log(socket);
@@ -45,12 +49,17 @@ const Number = () => {
 
 
 const Home = () => {
+  const location = useLocation();
+  console.log("location", location.state);
+
   const [username] = useAtom(usernameAtom)
+
   return (
     <div className="home-page">
       <PlanTalk />
       <div className="main-contents">
         <div className="plant-name">
+          
           <div className="plant-name-text">ブルーベリー</div>
           <ReactSVG src="/img/pen.svg" />
         </div>
