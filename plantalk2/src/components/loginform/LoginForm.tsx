@@ -4,6 +4,8 @@ import InputWithIcon from '../InputwithIcon/InputWithIcon';
 import { usernameAtom, passwordAtom, isLoggedInAtom, mailAtom } from '../../atoms/authAtoms';
 import './LoginForm.css'
 import { Link } from 'react-router-dom';
+import FlowerGreen from '../../layout/Flower';
+import FlowerPink from '../../layout/FlowerPink';
 
 const LoginForm: React.FC = () => {
   const [username] = useAtom(usernameAtom);
@@ -42,6 +44,14 @@ const LoginForm: React.FC = () => {
 
   return (
     <div className="login-container">
+      <div className='flower-container'>
+        <div className='Flowergreen'>
+          <FlowerGreen/>
+        </div>
+        <div className='Flowerpink'>
+          <FlowerPink/>
+        </div>
+      </div>
       <InputWithIcon 
         type="username"
         atom={usernameAtom}
@@ -69,6 +79,14 @@ const LoginForm: React.FC = () => {
         ログイン
       </Link>
       <Link to='/select' className='back-button'>戻る</Link>
+      <div className='flower-container2'>
+        <div className='Flowergreen2'>
+          <FlowerPink/>
+        </div>
+        <div className='Flowerpink2'>
+          <FlowerGreen/>
+        </div>
+      </div>
     </div>
   );
 };

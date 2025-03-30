@@ -1,7 +1,7 @@
 .login-screen {
     width: 100%;
     height: 100vh;
-    max-height: 844px;
+    max-height: 1000px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -9,22 +9,74 @@
     align-items: center;
     padding: 2rem;
     box-sizing: border-box;
+    position: relative;
+    min-height: 100vh;
+    position: relative;
+    overflow-y: auto;
+    padding-bottom: 2rem;
 }
 
-.login-form-button, .register-section-button{
-  background-color: #F18D9E; 
-  color: white;
-  border: none;
-  border-radius: 25px;
-  padding: 12px 0px;
-  font-size: 1.1rem;
-  text-decoration: none;
-  display: block;
-  width: 200px;
-  text-align: center;
-  margin: 5px auto;
+.flower-container {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
 }
 
-.logo-image2{
+.Flowergreen {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
 
+.Flowerpink {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.flower-container2 {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.Flowergreen2 {
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    transform: scale(-1, -1);
+}
+
+.Flowerpink2 {
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+    transform: scale(-1, -1);
+}
+
+.login-form-button, .register-section-button {
+    background-color: #F18D9E; 
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 0px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: block;
+    width: 200px;
+    text-align: center;
+    margin: 5px auto;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-image2 {
+    width: 300px;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
 }

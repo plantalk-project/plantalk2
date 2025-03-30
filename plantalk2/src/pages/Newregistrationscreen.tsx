@@ -4,6 +4,8 @@ import { mailAtom, passwordAtom, usernameAtom } from '../atoms/authAtoms';
 import { useAtom } from 'jotai';
 import InputWithIcon from '../components/InputwithIcon/InputWithIcon';
 import './Newregistrationscreen.css';
+import FlowerGreen from '../layout/Flower';
+import FlowerPink from '../layout/FlowerPink';
 
 const Newregistrationscreen = () => {
   const [username] = useAtom(usernameAtom);
@@ -51,6 +53,14 @@ const Newregistrationscreen = () => {
   return (
     <div className="new-registration-screen">
       <img src="/plantalk2.png" alt="PlantTalk Logo" className="logo-image3" />
+      <div className='flower-container'>
+        <div className='Flowergreen'>
+          <FlowerGreen/>
+        </div>
+        <div className='Flowerpink'>
+          <FlowerPink/>
+        </div>
+      </div>
       <form onSubmit={handleRegister} className="new-registration-container">  
         <InputWithIcon 
           type="username"
@@ -83,6 +93,14 @@ const Newregistrationscreen = () => {
         </Link>
         <Link to='/select' className='back-button2'>戻る</Link>
       </form>
+      <div className='flower-container2'>
+        <div className='Flowergreen2'>
+          <FlowerPink/>
+        </div>
+        <div className='Flowerpink2'>
+          <FlowerGreen/>
+        </div>
+      </div>
     </div>
   );
 };
