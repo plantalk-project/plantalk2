@@ -15,21 +15,26 @@ function Diary() {
   const [month, setMonth] = useAtom(getMonthAtom);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [growthState, setGrowthState] = useAtom(growthStateAtom);
-  const [useNext,setUseNext] = useAtom(nextAtom);
-  const formName = useForm();
+  const [useNext, setUseNext] = useAtom(nextAtom);
+  const [diaryText, setDiaryText] = useState("");
   const event = {
     emoji: 0,
     growth: 0,
-    diary:""
+    diary: "",
   };
 
   const navigate = useNavigate();
+  const formName = useForm();
+
+  const handleDiaryChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setDiaryText(event.target.value);
+  };
 
   const clickGetEvent = async (
     event: {
       emoji: number;
       growth: number;
-      diary:string;
+      diary: string;
     },
     link: string
   ) => {
@@ -44,7 +49,7 @@ function Diary() {
       return;
     }
 
-    console.log("event",event)
+    console.log("event", event);
 
     try {
       const response = await fetch(link, {
@@ -72,12 +77,10 @@ function Diary() {
         ]);
       }
 
-      if(event.growth == 5){
-        setUseNext(true)
+      if (event.growth == 5) {
+        setUseNext(true);
         navigate("/dictionary");
       }
-
-
     } catch (error) {
       console.log("error", error);
     }
@@ -92,35 +95,41 @@ function Diary() {
     event.growth = data;
     console.log("event", event.growth);
   };
-
-  const handleEvent = (data:{diary:string}) => {
+  const handleEvent = (data: { diary: string }) => {
+    console.log("data", diaryText);
     //setGrowthState((prev) => [...prev, {grouth:event.growthState, date:event.recorrdedAt}]);
-    event.diary = data.diary
+    event.diary = diaryText;
     clickGetEvent(event, `${import.meta.env.VITE_API_URL}/calendar`);
-    console.log("formName.register",typeof data.diary)
+    console.log("formName.register", typeof data.diary);
   };
+  
 
   return (
     <div className="home-area">
       <br></br>
       <div className="Diary_date">
-        <span>{month}</span>月<span>{date}</span><span>日</span><span>(月)</span>
+        <span>{month}</span>月<span>{date}</span>
+        <span>日</span>
+        <span>(月)</span>
       </div>
 
       <h2 className="settings-title">
-  <span className="underline"></span>
-</h2>
-<div className="diary_text">日記</div>
+        <span className="underline"></span>
+      </h2>
+      <div className="diary_text">日記</div>
       <form onSubmit={formName.handleSubmit(handleEvent)}>
-        <textarea className = "diary" placeholder="今日起きたことを自由に書いてみよう">
-
-        </textarea>
+        <textarea
+          className="diary"
+          placeholder="今日起きたことを自由に書いてみよう"
+          value={diaryText}
+          onChange={handleDiaryChange}
+        ></textarea>
 
         <h2 className="settings-title">
-  <span className="underline"></span>
-</h2>
+          <span className="underline"></span>
+        </h2>
         <div className="diary_text">植物の健康状態</div>
-        <div style={{ display: "flex", justifyContent: "center",　gap:"1em" }}>
+        <div style={{ display: "flex", justifyContent: "center", gap: "1em" }}>
           <div className="health-stamp">
             <ReactSVG
               src="/img/dizzy.svg"
@@ -129,12 +138,15 @@ function Diary() {
             <div>よくない</div>
           </div>
           <div className="health-stamp">
-            <ReactSVG src="/img/dissatisfied.svg" onClick={() => handleClickEmoji(2)} />
+            <ReactSVG
+              src="/img/dissatisfied.svg"
+              onClick={() => handleClickEmoji(2)}
+            />
           </div>
           <div className="health-stamp">
             <ReactSVG
-            src="/img/satisfied.svg"
-            onClick={() => handleClickEmoji(3)}
+              src="/img/satisfied.svg"
+              onClick={() => handleClickEmoji(3)}
             />
             <div>ふつう</div>
           </div>
@@ -147,39 +159,50 @@ function Diary() {
           </div>
         </div>
         <h2 className="settings-title">
-  <span className="underline"></span>
-</h2>
-        <div  className="diary_text">できごと</div>
-          <div style={{ display: "flex", justifyContent: "center",　gap:"1em" }}>
-            <div className="event-stamp">
-              <ReactSVG src="/img/wither.svg" onClick={() => handleClickSave(1)} />
-              <div>枯れた</div>
-            </div> 
-            <div className="event-stamp">
-              <ReactSVG
-                src="/img/germinated.svg"
-                onClick={() => handleClickSave(2)}
-              />
-              <div>発芽した</div>
-              </div>
-            <div className="event-stamp">
-              <ReactSVG src="/img/bloomed.svg" onClick={() => handleClickSave(3)} />
-              <div>咲いた</div>
-            </div>
-            <div className="event-stamp">
-              <ReactSVG src="/img/harvest.svg" onClick={() => handleClickSave(4)} />
-              <div>収穫した</div>
-            </div>
-            <div className="event-stamp">
-              <ReactSVG src="/img/plant.svg" onClick={() => handleClickSave(5)} />
-              <div>植えた</div>
-            </div>
+          <span className="underline"></span>
+        </h2>
+        <div className="diary_text">できごと</div>
+        <div style={{ display: "flex", justifyContent: "center", gap: "1em" }}>
+          <div className="event-stamp">
+            <ReactSVG
+              src="/img/wither.svg"
+              onClick={() => handleClickSave(1)}
+            />
+            <div>枯れた</div>
           </div>
-        
+          <div className="event-stamp">
+            <ReactSVG
+              src="/img/germinated.svg"
+              onClick={() => handleClickSave(2)}
+            />
+            <div>発芽した</div>
+          </div>
+          <div className="event-stamp">
+            <ReactSVG
+              src="/img/bloomed.svg"
+              onClick={() => handleClickSave(3)}
+            />
+            <div>咲いた</div>
+          </div>
+          <div className="event-stamp">
+            <ReactSVG
+              src="/img/harvest.svg"
+              onClick={() => handleClickSave(4)}
+            />
+            <div>収穫した</div>
+          </div>
+          <div className="event-stamp">
+            <ReactSVG src="/img/plant.svg" onClick={() => handleClickSave(5)} />
+            <div>植えた</div>
+          </div>
+        </div>
+
         <p></p>
         <form style={{ textAlign: "center" }}></form>
         {/* <button onClick={() => handleEvent()}>保存</button> */}
-        <a href="" className="btn_03">保存</a>
+        <button type="submit" className="btn_03">
+          保存
+        </button>
       </form>
       <p></p>
     </div>
