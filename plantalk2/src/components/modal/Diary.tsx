@@ -8,7 +8,6 @@ import { growthStateAtom } from "../../atoms/growthStateAtom";
 import Input from "../../layout/Input";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { nextAtom } from "../../atoms/nextAtoms";
 
 interface DiaryProps {
   modalOpen: boolean;
@@ -19,8 +18,8 @@ function Diary({ setModalOpen }: DiaryProps) {
   const [date] = useAtom(getDateAtom);
   const [month] = useAtom(getMonthAtom);
   const [token] = useState(localStorage.getItem("token") || "");
-  const [setGrowthState] = useAtom(growthStateAtom);
-  const [setUseNext] = useAtom(nextAtom);
+  const [, setGrowthState] = useAtom(growthStateAtom);
+  const [useNext, setUseNext] = useState(false);
   const formName = useForm();
   const event = {
     emoji: 0,
@@ -101,11 +100,14 @@ function Diary({ setModalOpen }: DiaryProps) {
   const handleEvent = (data:{diary:string}) => {
     event.diary = data.diary;
     
-    // 枯れた(1)または収穫した(4)が選択された場合、辞書ページに遷移
-    if (event.growth === 1 || event.growth === 4) {
+    // 収穫した(4)が選択された場合、辞書ページに遷移
+    if (event.growth === 4) {
       setUseNext(true);
-      navigate("/dictionary");
+      navigate("/dictionary", { state: { useNext: true } });
       return;
+    }else if(event.growth === 1){
+      setUseNext(true);
+      navigate('/chat')
     }else{
       setModalOpen(false);
       return;
@@ -193,7 +195,7 @@ function Diary({ setModalOpen }: DiaryProps) {
         
         <p></p>
         <form style={{ textAlign: "center" }}></form>
-        <button onClick={() => handleEvent({ diary: "" })} className="btn_03">保存</button>
+        <button onClick={() => handleEvent({ diary: "" }) } className="btn_03">保存</button>
         {/* <a href="" className="btn_03" onClick={() => handleEvent()}>保存</a> */}
       </form>
       <p></p>
