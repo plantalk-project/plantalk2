@@ -1,3 +1,6 @@
+@media(max-hight){
+    
+}
 
 .dictionary-page{
     height: 100vh;
@@ -24,7 +27,7 @@
     background: #5BC8AC;
     border-bottom: solid 6px #4AA28C;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
+    border-radius: 30px;
     width: 90%;
     height: 85%;
     display: flex;
@@ -46,8 +49,8 @@ img{
   width: 300px;
   height: 200px;
   object-fit: cover;
-  border: solid 5px #ffffff;
-  border-radius: 10px;
+  border: solid 7px #ffffff;
+  border-radius: 20px;
 }
 }
 
