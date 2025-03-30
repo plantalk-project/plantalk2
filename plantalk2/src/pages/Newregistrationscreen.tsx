@@ -81,7 +81,7 @@ const Newregistrationscreen = () => {
         >
           新規登録
         </Link>
-        <Link to='select' className='back-button2'>戻る</Link>
+        <Link to='/select' className='back-button2'>戻る</Link>
       </form>
     </div>
   );

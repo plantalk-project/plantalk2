@@ -4,6 +4,7 @@ import { plantnameAtom, planttypeAtom } from "../atoms/authAtoms"
 import InputWithIcon from "../components/InputwithIcon/InputWithIcon"
 import './PlantName.css'
 import Select, { StylesConfig, CSSObjectWithLabel } from 'react-select'
+import { useState, useEffect } from 'react'
 
 type OptionType = {
   value: string;
@@ -12,12 +13,21 @@ type OptionType = {
 
 const PlantName = () => {
   const [plantType, setPlantType] = useAtom(planttypeAtom);
+  const [plantName] = useAtom(plantnameAtom);
+  const [isValid, setIsValid] = useState(false);
+
+  useEffect(() => {
+    setIsValid(
+      plantName.trim().length > 0 &&
+      plantType.length > 0
+    );
+  }, [plantName, plantType]);
 
   const customStyles: StylesConfig<OptionType> = {
     control: (base: CSSObjectWithLabel) => ({
       ...base,
-      border: "none",  // 枠線を消す
-      boxShadow: "none", // フォーカス時の枠線を消す
+      border: "none",
+      boxShadow: "none",
     }),
   };
   
@@ -57,7 +67,19 @@ const PlantName = () => {
                 IndicatorSeparator: () => null,
               }}
             />
-            <Link to='/home' className="ok-button">OK</Link>
+            <div className="ok-button-container">
+              <Link 
+                to={isValid ? '/home' : '#'} 
+                className="ok-button"
+                style={{ 
+                  opacity: isValid ? 1 : 0.5,
+                  pointerEvents: isValid ? 'auto' : 'none'
+                }}
+              >
+                OK
+              </Link>
+              <Link to='/newregistrationscreen' className="back-button3">戻る</Link>
+            </div>
         </div>
     </div>
   )
