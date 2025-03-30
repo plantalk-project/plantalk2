@@ -16,7 +16,6 @@ body {
   //text-align: center;
   //color: #5bc8ac;
   //padding-top: 7vw;
-
 }
 .calender-title {
   display: flex;
@@ -60,17 +59,19 @@ body {
 
 .calender-title-text-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  justify-content: space-around;
+  width: 100%;
 }
 
 .calender-title-text {
   font-size: 20px;
   font-weight: bold;
   text-stroke: 2px white;
-  paint-order: stroke;
   color: white;
+
+  justify-content: center;
+  display: flex;
+  width: 100%;
 }
 
 .form {
@@ -80,12 +81,6 @@ body {
   width: 100%;
 }
 
-.slider-prev-button {
-  padding-right: 10px;
-}
-.slider-next-button {
-  padding-left: 10px;
-}
 .popota {
   position: absolute;
   bottom: 30px;
