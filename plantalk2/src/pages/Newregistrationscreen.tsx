@@ -88,6 +88,7 @@ const Newregistrationscreen = () => {
             opacity: isValid ? 1 : 0.5,
             pointerEvents: isValid ? 'auto' : 'none'
           }}
+         
         >
           新規登録
         </Link>
