@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./ChatApp.css";
 
+import { SlidePrevButton } from "../components/calender/SlideprevButton";
 import { useForm } from "react-hook-form";
 import Input from "../layout/Input";
 import { ReactSVG } from "react-svg";
@@ -28,6 +29,7 @@ export default function ChatApp() {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   const [token, setToken] = useState(localStorage.getItem("token") || ""); //トークンの値を取得
+  const [sendmessage,setSendmessage] = useState("")
 
   const [currentData, setCurrentData] = useState<
     {
@@ -42,20 +44,29 @@ export default function ChatApp() {
 
   const [sendData, setSendData] = useState<string[]>([]);
 
+  const handleMessageChage = (event:React.ChangeEvent<HTMLTextAreaElement>) => {
+    setSendmessage(event.target.value)
+  }
+
   //メッセージを送信する関数
   const postLogin = async () => {
     //メッセージを送信するデータを作成
+
+   
     const sendData = {
-      message: form2.getValues("message") || "",
+      message: sendmessage,
     };
 
-    form2.reset();
-    console.log("送信データ:", sendData);
-    console.log("メッセージ:", sendData.message);
+
+    console.log("送信データ:", sendmessage);
+    console.log("メッセージ:", sendmessage);
+
+    setSendmessage("");
+    event.preventDefault(); 
 
     setCurrentData((prev) => [
       ...prev,
-      { sender: "user", message: sendData.message },
+      { sender: "user", message:sendmessage },
     ]);
 
     try {
@@ -87,6 +98,8 @@ export default function ChatApp() {
     } catch (error) {
       console.log("error", error);
     }
+
+
   };
 
   //ローカルストレージからトークンの値を取得
@@ -139,13 +152,10 @@ export default function ChatApp() {
     fetchChatHistory();
   }, []);
 
-  const form2 = useForm();
 
   console.log("token", token);
 
-  const defaultValues = [
-    { label: "メッセージ", fieldName: "message", id: "message" },
-  ];
+
 
   //[...chatHistoryUser, ...chatHistoryModel]で2つの値を結合
   //.sortで日付順にソート
@@ -154,11 +164,19 @@ export default function ChatApp() {
       new Date(a.recordedAt).getTime() - new Date(b.recordedAt).getTime()
   );
 
+
+
   return (
     <div className="chat-app">
       {/* メッセージの履歴 */}
-      
+      <header className="chat-hed">
+          <div className="slider-prev-button">
+              <SlidePrevButton />
+          </div>
+        <div className="chat-hed-name">ブルベ冬</div>
+      </header>
       <div className="messages-list">
+        <div>
         {sortedMessages.map((msg, index) => (
           <div
             className={
@@ -170,38 +188,40 @@ export default function ChatApp() {
           </div>
         ))}
         <div ref={messagesEndRef} />
+        </div>
       </div>
 
       {/* 送信したメッセージ */}
       <div className="messages-list">
         {currentData.map((msg, index) => (
-          <div
-            key={index}
-            className={
-              msg.sender === "user" ? "user-chat-area" : "ai-chat-area"
-            }
-          >
-            {msg.message}
+          <div>
+            
+            <div
+              key={index}
+              className={
+                msg.sender === "user" ? "user-chat-area" : "ai-chat-area"
+              }
+            >
+              {msg.message}
+            </div>
           </div>
         ))}
         <div ref={messagesEndRef} />
       </div>
 
-      {/* 入力エリア */}
+      
+          {/* 入力エリア */}
       <div className="send-area">
-        <form onSubmit={form2.handleSubmit(postLogin)}>
-          {defaultValues.map((value) => (
-            <Input
-              key={value.id}
-              label={value.label}
-              fieldName={value.fieldName}
-              id={value.id}
-              register={form2.register}
-            />
-          ))}
-          <div>
-            <button type="submit" className="sendbutton">送信</button>
-          </div>
+        <form className="chat-form" onSubmit={postLogin}>          
+          <textarea className = "chat-sent-message"
+          placeholder="メッセージ"
+          onChange={handleMessageChage}
+          value={sendmessage}
+          >
+          </textarea>
+          <button type="submit" className="sendbutton">
+            <ReactSVG src="/img/send.svg"/>
+          </button>
         </form>
       </div>
       {/* <img src="/img/popota.svg"  className="background-popota" width={450} /> */}
