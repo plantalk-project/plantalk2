@@ -4,6 +4,7 @@ import { SlidePrevButton } from './components/calender/SlideprevButton'
 import { SlideNextButton } from './components/calender/SlideNextButton'
 import { useLocation, useNavigate } from 'react-router-dom'
  import { useState } from 'react'
+import Footer from './components/footer/Footer'
 
 function Dictionary() {
     const location = useLocation();
@@ -66,6 +67,7 @@ function Dictionary() {
                 </div>
             </div>
             </div>
+            <Footer/>
         </div>
         </div>
     )

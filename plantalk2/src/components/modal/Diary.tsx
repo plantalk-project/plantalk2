@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { getDateAtom, getMonthAtom } from "../../atoms/dateAtoms";
 import { useAtom } from "jotai";
 import "./Diary.css";
@@ -28,6 +28,11 @@ function Diary({ setModalOpen }: DiaryProps) {
 
   const navigate = useNavigate();
   const formName = useForm();
+
+  // growthStateが変更されるたびにローカルストレージに保存
+  useEffect(() => {
+    localStorage.setItem("growthState", JSON.stringify(growthState));
+  }, [growthState]);
 
   const handleDiaryChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setDiaryText(event.target.value);
@@ -100,16 +105,25 @@ function Diary({ setModalOpen }: DiaryProps) {
   };
   const handleEvent = (data:{ diary : string }) => {
     event.diary = data.diary;
-    // event.diary = diaryText;
     // 収穫した(4)が選択された場合、辞書ページに遷移
     if (event.growth === 4) {
       setUseNext(true);
       navigate("/dictionary", { state: { useNext: true } });
       return;
-    }else if(event.growth === 1){
+    } else if(event.growth === 1) {
       setUseNext(true);
-      navigate('/chat')
-    }else{
+      navigate('/chat');
+    } else {
+      // カレンダーにできごとを保存
+      if (month && date) {
+        const now = new Date();
+        const nowYear = now.getFullYear();
+        const SaveData = new Date(nowYear, month - 1, date);
+        setGrowthState((prev) => [
+          ...prev,
+          { grouth: event.growth.toString(), date: SaveData },
+        ]);
+      }
       setModalOpen(false);
       return;
     }

@@ -5,4 +5,12 @@ interface GrowthState {
   date: Date;
 }
 
-export const growthStateAtom = atom<GrowthState[]>([]);
+const loadInitialState = () => {
+  if (typeof window !== 'undefined') {
+    const savedState = localStorage.getItem('growthState');
+    return savedState ? JSON.parse(savedState) : [];
+  }
+  return [];
+};
+
+export const growthStateAtom = atom(loadInitialState());

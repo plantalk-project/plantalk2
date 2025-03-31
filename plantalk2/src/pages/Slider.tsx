@@ -13,6 +13,7 @@ import { growthStateAtom } from "../atoms/growthStateAtom";
 import Popota from "../components/Popota";
 import Title from "./Title";
 import PlanTalk from "../components/Plantalk";
+import Footer from "../components/footer/Footer";
 
 function Slider() {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -155,6 +156,7 @@ function Slider() {
       <div className="popota">
         <Popota />
       </div>
+      <Footer/>
       <div className="form">
         <Modal />
       </div>

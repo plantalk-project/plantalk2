@@ -39,7 +39,7 @@
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 85%;
     height: clamp(20px, 10vh, 150px);
     flex-flow: column;
 }
