@@ -40,11 +40,11 @@ function Dictionary() {
             
 
                 <div className="dictionary-text">
-                    植物名: <br></br>
-                    種類: <br></br>
-                    花言葉: <br></br>
-                    開花にかかった期間: <br></br>
-                    性格: <br></br>
+                    植物名:すみれ <br></br>
+                    種類:スミレ属 <br></br>
+                    花言葉: 「謙虚」「誠実」「小さな幸せ<br></br>
+                    開花にかかった期間: 1年<br></br>
+                    性格: 甘えん坊<br></br>
                 </div>      
             </div>
             <div className="trivia">
