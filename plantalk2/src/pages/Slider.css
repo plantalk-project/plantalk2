@@ -28,7 +28,7 @@ body {
 
 .square-left {
   width: 6vw;
-  height: 60px;
+  height: 50px;
   border: 8px solid #5bc8ac;
   background-color: white;
   position: absolute;
@@ -39,7 +39,7 @@ body {
 .square-right {
   width: 6vw;
   border: 8px solid #5bc8ac;
-  height: 60px;
+  height: 50px;
   background-color: white;
   position: absolute;
   right: 25vw;
@@ -69,7 +69,7 @@ body {
   text-stroke: 2px white;
   paint-order: stroke;
   color: white;
-
+  margin-right: 13%;
   justify-content: center;
   display: flex;
   width: 100%;

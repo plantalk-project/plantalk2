@@ -33,6 +33,7 @@
 
   > img {
     height: clamp(30px, 21vh, 200px);
+    margin-top: 5%;;
     width: auto;
   }
 }

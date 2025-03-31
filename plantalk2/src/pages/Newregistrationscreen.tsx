@@ -52,6 +52,7 @@ const Newregistrationscreen = () => {
 
   return (
     <div className="new-registration-screen">
+      <div className="new-registration-container">
       <img src="/plantalk2.png" alt="PlantTalk Logo" className="logo-image3" />
       <div className='flower-container'>
         <div className='Flowergreen'>
@@ -61,7 +62,7 @@ const Newregistrationscreen = () => {
           <FlowerPink/>
         </div>
       </div>
-      <form onSubmit={handleRegister} className="new-registration-container">  
+      <form onSubmit={handleRegister} >  
         <InputWithIcon 
           type="username"
           atom={usernameAtom}
@@ -102,6 +103,7 @@ const Newregistrationscreen = () => {
           <FlowerGreen/>
         </div>
       </div>
+    </div>
     </div>
   );
 };
